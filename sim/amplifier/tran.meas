@@ -1,0 +1,13 @@
+* Measure amplifier
+.control
+
+load {cicname}.raw
+
+echo "MEAS_START"
+
+*ac dec 100 1k 100Meg * sweep f from 1 kHz to 100MHz, 100 points per decade
+*meas ac gain max db(v(vout)) - db(v(vin+))
+ac lin 1 1k 1k
+
+echo "MEAS_END"
+.endc

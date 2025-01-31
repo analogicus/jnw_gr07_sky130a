@@ -1,0 +1,21 @@
+#<name>:
+#  src:
+#    - <paramters>
+#  typ: <typical spec value>
+#  name: <long name>
+#  min: <minimum spec value>
+#  max: <maximum spec value>
+#  scale: <scale, multiply result by scale>
+#  digits: <significant digits>
+#  unit: Unit
+
+#vdd:
+#  src:
+#    - vdd
+#  name: input_voltage
+#  min: 3
+#  typ: 3.3
+#  max: 3.6
+#  scale: 1
+#  digits: 3
+#  unit: V
