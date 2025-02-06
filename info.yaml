@@ -16,5 +16,9 @@ doc:
   #   <library>:
   #       - <cell>
   #       - <cell>
+  JNW_GR07_SKY130A:
+      - JNW_GR07
+      - temperature_to_current_tord
 sim:
   # <simdir>: command
+  temperature_to_current_tord: make typical

@@ -1,0 +1,9 @@
+* Measure temperature_to_current_tord
+.control
+
+load {cicname}.raw
+
+echo "MEAS_START"
+
+echo "MEAS_END"
+.endc
