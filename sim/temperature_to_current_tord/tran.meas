@@ -9,7 +9,7 @@ let ibn = -i(v0)
 meas tran ibns_20u find ibn at=5n
 meas tran vgs_m1 find v(ibps_5u) at=5n
 
-meas tran i_r1 find v(vdd_1v8) at=5n
+meas tran i_r1 find i(R1) at=5n
 
 echo "MEAS_END"
 .endc
