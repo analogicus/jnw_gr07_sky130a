@@ -10,10 +10,10 @@ N -60 -100 60 -100 {lab=#net1}
 N -100 140 -40 140 {lab=#net2}
 N 40 140 100 140 {lab=#net3}
 N 100 140 100 160 {lab=#net3}
-N -160 -160 100 -160 {lab=VDD}
-N 100 -100 140 -100 {lab=VDD}
-N 100 -160 140 -160 {lab=VDD}
-N -140 -100 -100 -100 {lab=VDD}
+N -160 -160 100 -160 {lab=VDD_1V8}
+N 100 -100 140 -100 {lab=VDD_1V8}
+N 100 -160 140 -160 {lab=VDD_1V8}
+N -140 -100 -100 -100 {lab=VDD_1V8}
 N 100 300 100 320 {lab=VSS}
 N -100 300 -100 320 {lab=VSS}
 N 100 220 100 240 {lab=#net4}
@@ -22,11 +22,11 @@ N 40 120 40 140 {lab=#net3}
 N 100 -70 100 140 {lab=#net3}
 N 0 -100 0 -80 {lab=#net1}
 N -100 -70 -100 240 {lab=#net2}
-N 100 -160 100 -130 {lab=VDD}
-N -100 -160 -100 -130 {lab=VDD}
-N -140 -160 -140 -100 {lab=VDD}
-N 140 -160 140 -100 {lab=VDD}
-C {devices/ipin.sym} -160 -160 0 0 {name=p1 lab=VDD}
+N 100 -160 100 -130 {lab=VDD_1V8}
+N -100 -160 -100 -130 {lab=VDD_1V8}
+N -140 -160 -140 -100 {lab=VDD_1V8}
+N 140 -160 140 -100 {lab=VDD_1V8}
+C {devices/ipin.sym} -160 -160 0 0 {name=p1 lab=VDD_1V8}
 C {devices/ipin.sym} -160 320 0 0 {name=p2 lab=VSS}
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} -60 -100 0 1 {name=x1 }
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 60 -100 0 0 {name=x2 }
