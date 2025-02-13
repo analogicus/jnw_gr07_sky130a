@@ -20,11 +20,8 @@ N 100 -160 100 -130 {lab=VDD_1V8}
 N -100 -160 -100 -130 {lab=VDD_1V8}
 N -140 -160 -140 -100 {lab=VDD_1V8}
 N 140 -160 140 -100 {lab=VDD_1V8}
-N -140 240 -140 290 {lab=#net3}
-N 60 240 60 290 {lab=#net2}
 N 100 220 100 260 {lab=#net2}
 N -100 240 -100 260 {lab=#net3}
-N 60 240 100 240 {lab=#net2}
 N -140 240 -100 240 {lab=#net3}
 N -100 140 -10 140 {lab=#net3}
 N 100 -70 100 160 {lab=#net4}
@@ -55,14 +52,6 @@ footprint=1206
 device=resistor
 m=1}
 C {JNW_BIAS_SKY130A/JNWBIAS_OTA.sym} 0 -60 3 0 {name=x3}
-C {sky130_fd_pr/npn_05v5.sym} -120 290 0 0 {name=Q3
-model=npn_05v5_w1p00l2p00 m=1
-spiceprefix=X
-spice_ignore=true}
-C {sky130_fd_pr/npn_05v5.sym} 80 290 0 0 {name=Q4[4:0]
-model=npn_05v5_w1p00l2p00 m=1
-spiceprefix=X
-spice_ignore=true}
 C {devices/ipin.sym} -160 340 0 0 {name=p2 lab=VSS
 }
 C {sky130_fd_pr/pnp_05v5.sym} 370 830 0 0 {name=Q1
