@@ -1,0 +1,114 @@
+** sch_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_GR07_SKY130A/temp_to_current_tb.sch
+**.subckt temp_to_current_tb
+x1 net1 I_T_tb 0 temp_to_current
+V3 net1 0 1.8
+R1 net2 0 1k m=1
+V1 net2 I_T_tb 0
+**** begin user architecture code
+
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include ~/pro/aicex/ip/jnw_sv_sky130a/design/JNW_SV_SKY130A/simulation/tt.spi
+*.lib /opt/pdk/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+* Options:
+*.option savecurrents
+*.option gmin=1e-15
+.option temp=120
+*.save I(I_T_tb) V(I_T_tb)
+.save I(R1)
+.save all
+.control
+*tran 10n 1m
+optran 0 0 0 10n 10u 0
+op
+write temp_to_current_tb.raw
+exit
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  JNW_GR07_SKY130A/temp_to_current.sym # of pins=3
+** sym_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_GR07_SKY130A/temp_to_current.sym
+** sch_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_GR07_SKY130A/temp_to_current.sch
+.subckt temp_to_current VDD I_out VSS
+*.ipin VDD
+*.opin I_out
+*.ipin VSS
+x1 VDD Vin_+ Vin_- Bias_Voltage VSS amplifier
+x2 Vin_+ Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x3 Vin_- Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+XQ1 VSS VSS Vin_- sky130_fd_pr__pnp_05v5_W3p40L3p40 m=1 mult=1
+XQ2 VSS VSS V_diode sky130_fd_pr__pnp_05v5_W3p40L3p40 m=8 mult=8
+x5<9> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<8> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<7> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<6> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<5> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<4> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<3> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<2> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<1> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+x5<0> I_out Bias_Voltage VDD VDD JNWATR_PCH_4C5F0
+R2 Vin_+ V_diode 10k ac=10k m=1
+.ends
+
+
+* expanding   symbol:  JNW_GR07_SKY130A/amplifier.sym # of pins=5
+** sym_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_GR07_SKY130A/amplifier.sym
+** sch_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_GR07_SKY130A/amplifier.sch
+.subckt amplifier VDD Vin+ Vin- Vout VSS
+*.ipin Vin+
+*.ipin Vin-
+*.ipin VDD
+*.ipin VSS
+*.opin Vout
+x1<1> OTA_CM_gate OTA_CM_gate VSS VSS JNWATR_NCH_4C5F0
+x1<0> OTA_CM_gate OTA_CM_gate VSS VSS JNWATR_NCH_4C5F0
+x2<1> Vout OTA_CM_gate VSS VSS JNWATR_NCH_4C5F0
+x2<0> Vout OTA_CM_gate VSS VSS JNWATR_NCH_4C5F0
+x3<2> OTA_CM_gate Vin+ OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x3<1> OTA_CM_gate Vin+ OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x3<0> OTA_CM_gate Vin+ OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x4<2> Vout Vin- OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x4<1> Vout Vin- OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x4<0> Vout Vin- OTA_VDD OTA_VDD JNWATR_PCH_4C5F0
+x5<3> OTA_VDD IB_gate VDD VDD JNWATR_PCH_4C5F0
+x5<2> OTA_VDD IB_gate VDD VDD JNWATR_PCH_4C5F0
+x5<1> OTA_VDD IB_gate VDD VDD JNWATR_PCH_4C5F0
+x5<0> OTA_VDD IB_gate VDD VDD JNWATR_PCH_4C5F0
+x6 IB_gate IB_gate VDD VDD JNWATR_PCH_4C5F0
+R2 IB_gate VSS 10Meg ac=10Meg m=1
+.ends
+
+
+* expanding   symbol:  JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym # of pins=4
+** sym_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym
+** sch_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sch
+.subckt JNWATR_PCH_4C5F0 D G S B
+*.iopin D
+*.iopin G
+*.iopin S
+*.iopin B
+XM1 D G S B sky130_fd_pr__pfet_01v8 L=0.94 W=3.2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  JNW_ATR_SKY130A/JNWATR_NCH_4C5F0.sym # of pins=4
+** sym_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A/JNWATR_NCH_4C5F0.sym
+** sch_path: /home/ranerhei/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A/JNWATR_NCH_4C5F0.sch
+.subckt JNWATR_NCH_4C5F0 D G S B
+*.iopin D
+*.iopin G
+*.iopin S
+*.iopin B
+XM1 D G S B sky130_fd_pr__nfet_01v8 L=0.94 W=3.2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.end
