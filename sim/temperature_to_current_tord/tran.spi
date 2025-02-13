@@ -32,12 +32,14 @@ VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
 * DUT
 *-----------------------------------------------------------------
 .include ../xdut.spi
+.include ../../../../cpdk/ngspice/ideal_circuits.spi
 
 *----------------------------------------------------------------
 * PROBE
 *----------------------------------------------------------------
 .save all
-.save i(R1) v(R1)
+.save i(xdut.R1)
+.option savecurrents
 
 *----------------------------------------------------------------
 * NGSPICE control
@@ -51,7 +53,7 @@ unset askquit
 optran 0 0 0 1n 1u 0
 
 
-tran 1n 10n 1p
+tran 1n 10000n 1p
 write
 quit
 
