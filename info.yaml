@@ -21,4 +21,4 @@ doc:
       - temperature_to_current_tord
 sim:
   # <simdir>: command
-  temperature_to_current_tord: make typical OPT="--no-sha"
+  temperature_to_current_tord: make typical && make summary
