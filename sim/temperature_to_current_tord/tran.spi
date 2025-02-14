@@ -41,6 +41,7 @@ VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
 *.probe I(xdut.R1)
 *.option savecurrents
 *.probe alli
+.save @r.xdut.r1[i]
 
 *----------------------------------------------------------------
 * NGSPICE control
