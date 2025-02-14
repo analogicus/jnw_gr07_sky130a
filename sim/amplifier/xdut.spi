@@ -1,2 +1,2 @@
 *Automatic generated instance fron ../../tech/scripts/genxdut amplifier
-XDUT Vin+ Vin- VDD VSS Vout  amplifier
+XDUT VDD Vin+ Vin- Vout VSS  amplifier

@@ -5,6 +5,15 @@
 [![DOCS](../../actions/workflows/docs.yaml/badge.svg)](../../actions/workflows/docs.yaml)
 [![SIM](../../actions/workflows/sim.yaml/badge.svg)](../../actions/workflows/sim.yaml)
 
+# Milestone 1
+For milestone 1 we have implemented a circuit with output current linearly dependent on current.
+To test the milestone pull the repo, go into directory
+jnw_gr07_sky130a/sim/temp_to_current_tb
+and run "make typical"
+This will sweep the temperature in the range -40 to 120 C
+To see the results run "cicsim wave output_tran/tran_SchGtKttTtVt.raw"
+and plot the current "i(v.xdut.v1)". :)
+
 # Who
 Reidar, Pol and Tord
 

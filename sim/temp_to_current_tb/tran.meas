@@ -1,0 +1,12 @@
+* Measure temp_to_current_tb
+.control
+
+load {cicname}.raw
+
+echo "MEAS_START"
+
+let iout = -i(v.xdut.v1)
+meas tran iout_meas find iout at=5n
+
+echo "MEAS_END"
+.endc

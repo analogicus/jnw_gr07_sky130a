@@ -1,0 +1,20 @@
+#<name>:
+#  src:
+#    - <paramters>
+#  typ: <typical spec value>
+#  name: <long name>
+#  min: <minimum spec value>
+#  max: <maximum spec value>
+#  scale: <scale, multiply result by scale>
+#  digits: <significant digits>
+#  unit: Unit
+iout:
+  src:
+    - iout_meas
+  name: output current
+  min: -50%
+  typ: 50
+  max: 50%
+  scale: 1e6
+  digits: 3
+  unit: uA

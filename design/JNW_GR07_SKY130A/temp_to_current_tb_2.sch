@@ -24,6 +24,30 @@ N 190 -0 200 -0 {lab=I_T_tb}
 C {JNW_GR07_SKY130A/temp_to_current.sym} 50 0 0 0 {name=x1}
 C {devices/lab_wire.sym} -170 60 0 0 {name=p1 sig_type=std_logic lab=0}
 C {devices/vsource.sym} -190 0 0 0 {name=V3 value=1.8 savecurrent=false}
+C {devices/simulator_commands_shown.sym} -570 -560 0 0 {name=COMMANDS
+simulator=ngspice
+only_toplevel=false 
+value="
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include ~/pro/aicex/ip/jnw_sv_sky130a/design/JNW_SV_SKY130A/simulation/tt.spi 
+*.lib /opt/pdk/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+* Options:
+*.option savecurrents
+*.option gmin=1e-15
+.option temp=120
+*.save I(I_T_tb) V(I_T_tb)
+.save I(R1)
+.save all
+.control
+*tran 10n 1m
+optran 0 0 0 10n 10u 0
+op
+write temp_to_current_tb.raw
+exit
+.endc
+.end
+"}
 C {devices/lab_wire.sym} 170 0 0 0 {name=p6 sig_type=std_logic lab=I_T_tb
 }
 C {devices/res.sym} 280 40 0 0 {name=R1
