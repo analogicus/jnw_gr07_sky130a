@@ -21,4 +21,4 @@ doc:
       - temperature_to_current_tord
 sim:
   # <simdir>: command
-  temperature_to_current_tord: cicsim run --name Sch_temp tran  Sch Gt Ktt "Tt,Th,Tl" Vt
+  temperature_to_current_tord: make typical OPT="--no-sha"
