@@ -5,5 +5,13 @@ load {cicname}.raw
 
 echo "MEAS_START"
 
+* This does not work and I do not know why. It results in this error "Error: no such device or model name r.xdut.r1", but only after .endc. So, the measurements works.
+* let ir1 = i(@r.xdut.r1[i])
+* meas tran i_r1_at_5n find ir1 at=5n
+* meas tran i_r1 find ir1 at=8u
+
+meas tran i_r1_at_5n find i(@r.xdut.r1[i]) at=5n
+meas tran i_r1 find i(@r.xdut.r1[i]) at=8u
+
 echo "MEAS_END"
 .endc
