@@ -31,13 +31,13 @@
 #   digits: 3
 #   unit: V
 
-ir1:
-  src:
-    - i_r1
-  name: PTAT current
-  typ: 20
-  min: 1
-  max: 100
-  scale: 1e6
-  digits: 3
-  unit: uA
+# ir1:
+#  src:
+#    - i_r1
+#  name: PTAT current
+#  typ: 20
+#  min: 1
+#  max: 100
+#  scale: 1e6
+#  digits: 3
+#  unit: uA
