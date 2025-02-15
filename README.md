@@ -45,9 +45,9 @@ We used tools such as xschem, ngspice, and magic.
 
 | Version | Status | Comment|
 | :---| :---| :---|
-|0.1.0 | :v: | Sim setup |
-|0.1.1 | :v: | PTAT |
-|0.1.2 | :x: | Digital output |
+|0.1.0 | :white_check_mark: | Sim setup |
+|0.1.1 | [] | PTAT |
+|0.1.2 | [x] | Digital output |
 |0.1.3 | :x: | Layout |
 
 
