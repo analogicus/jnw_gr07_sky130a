@@ -39,6 +39,8 @@ We used tools such as xschem, ngspice, and magic.
 | :-              |  :-:       |
 | Schematic       | design/JNW_GR07_SKY130A/JNW_GR07.sch |
 | Layout          | design/JNW_GR07_SKY130A/JNW_GR07.mag |
+| Schematic       | design/JNW_GR07_SKY130A/temp_to_current_tb.sch |
+| Schematic       | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch |
 
 
 # Changelog/Plan
@@ -46,8 +48,8 @@ We used tools such as xschem, ngspice, and magic.
 | Version | Status | Comment|
 | :---| :---| :---|
 |0.1.0 | :white_check_mark: | Sim setup |
-|0.1.1 | [] | PTAT |
-|0.1.2 | [x] | Digital output |
+|0.1.1 | :white_check_mark: | PTAT |
+|0.1.2 | :x: | Digital output |
 |0.1.3 | :x: | Layout |
 
 
