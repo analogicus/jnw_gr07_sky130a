@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def main(name="output_tran/tran_SchGtKttTtVt"):
   # Delete next line if you want to use python post processing
-  # return
+  return
 
   # fname = name + ".png"
   # print(f"Saving {fname}")

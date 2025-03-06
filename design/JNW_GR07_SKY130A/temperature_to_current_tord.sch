@@ -42,7 +42,7 @@ m=1}
 C {JNW_BIAS_SKY130A/JNWBIAS_OTA.sym} 0 -60 3 0 {name=x3}
 C {devices/ipin.sym} -160 340 0 0 {name=p2 lab=VSS
 }
-C {sky130_fd_pr/pnp_05v5.sym} 80 290 0 0 {name=Q2[1:0]
+C {sky130_fd_pr/pnp_05v5.sym} 80 290 0 0 {name=Q2[7:0]
 model=pnp_05v5_W3p40L3p40
 m=1
 spiceprefix=X
