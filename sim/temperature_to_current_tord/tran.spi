@@ -18,15 +18,36 @@
 *-----------------------------------------------------------------
 .param TRF = 10p
 
+*
+* original code stops, self written code begins ...
+*
+
+* dirty fix (taken from jnw_gr05)
+.param vdda = 1.8
+
+*
+* self written code stops, original code continues...
+*
+
 .param AVDD = {vdda}
 
 *-----------------------------------------------------------------
 * FORCE
 *-----------------------------------------------------------------
 VSS  VSS  0     dc 0
-VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
-* IBP 0 IBPS_5U dc 5u
-* V0  IBNS_20U 0 dc 1
+*VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
+*IBP 0 IBPS_5U dc 5u
+*V0  IBNS_20U 0 dc 1
+
+*
+* original code stops, self written code begins ...
+*
+
+VDD VDD_1V8 VSS dc 1.8
+
+*
+* self written code stops, original code continues...
+*
 
 *-----------------------------------------------------------------
 * DUT
@@ -53,10 +74,26 @@ set color1=black
 unset askquit
 
 optran 0 0 0 1n 1u 0
-tran 1n 10000n 1p
+*tran 1n 10000n 1p
 *.dc TEMP -40 125 10
 
-write
+*write
+
+*
+* original code stops, self written code begins ...
+*
+
+set fend = .raw
+foreach vtemp -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120
+	option temp=$vtemp
+	tran 1n 5u 10n
+	write {cicname}_$vtemp$fend
+end
+
+*
+* self written code stops, original code continues...
+*
+
 quit
 
 
