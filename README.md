@@ -5,7 +5,9 @@
 [![DOCS](../../actions/workflows/docs.yaml/badge.svg)](../../actions/workflows/docs.yaml)
 [![SIM](../../actions/workflows/sim.yaml/badge.svg)](../../actions/workflows/sim.yaml)
 
+
 # Milestone 1
+
 For milestone 1 we have implemented a circuit with output current linearly dependent on temperature.
 To test the milestone pull the repo, go into directory
 jnw_gr07_sky130a/sim/temp_to_current_tb
@@ -15,17 +17,21 @@ To see the results run "cicsim wave output_tran/tran_SchGtKttTtVt.raw"
 and plot the current "i(v.xdut.v1)". :)
 
 You can also test the circuit temperature_to_current_tord in the directory jnw_gr07_sky130a/design/ by running 
-"make temp" from the directory jnw_gr07_sky130a/sim/temperature_to_current_tord/. This will simulate the circuit 
-at low, typical and high temperatures (Tl, Tt, Th), resulting in an almost linear current proportional to absolute 
-temperature (ptat), as plotted in .../temperature_to_current_tord/results/ptat-current.png.
+"make typical" from the directory jnw_gr07_sky130a/sim/temperature_to_current_tord/. This will simulate the circuit 
+at temperatures from -20 to 120, resulting in what seems to be a linear current proportional to absolute 
+temperature (ptat), as shown in jnw_gr07_sky130a/sim/temperature_to_current_tord/ptat_vs_temp.png.
+
 
 # Who
+
 Reidar Arne Eidsvik Nerheim, Pol Batalle Largo and Tord Olsen Sætermo.
+
 
 # Why
 
 <explain why you made this module>
 This project is a part of the course "TFE4188 - Advanced Integrated Circuits" at NTNU during the spring of 2025.
+
 
 # How
 
