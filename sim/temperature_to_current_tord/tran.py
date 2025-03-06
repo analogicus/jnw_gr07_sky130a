@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-import pandas as pd
+# import pandas as pd
 import yaml
-import cicsim as cs
+# import cicsim as cs
 import matplotlib.pyplot as plt
+# import numpy as np
 
 def main(name="output_tran/tran_SchGtKttTtVt"):
   # Delete next line if you want to use python post processing
@@ -28,13 +29,13 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   i_r1 = []
 
   # Open and read the YAML file
-  with open(yamlfile, 'r') as file:
+  with open(yamlfile, "r") as file:
     data = yaml.load(file, Loader=yaml.FullLoader)
 
     # Iterate through all keys in the YAML data
     for key, value in data.items():
-      if key.startswith('i_r1'):
-        temp = int(key.split('_')[-1])
+      if key.startswith("i_r1"):
+        temp = int(key.split("_")[-1])
         temps.append(temp)
         i_r1.append(value)
 
@@ -57,10 +58,10 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
            f"Max i_ptat: {ys[-1]:.2f} µA\n"
            f"Range i_ptat: {(ys[-1]-ys[0]):.2f} µA\n"
            f"Avg step i_ptat: {(ys[-1]-ys[0])/(xs[-1]-xs[0]):.2f} µA/°C",
-           bbox=dict(facecolor='white', edgecolor='black'))
+           bbox=dict(facecolor="white", edgecolor="black"))
 
   figname = "ptat_vs_temp.png"
-  plt.savefig(figname, bbox_inches='tight')
+  plt.savefig(figname, bbox_inches="tight")
   plt.show()
 
   print("plot of ptat current vs temperature is saved in /sim/ folder as: " + figname + ".png")
