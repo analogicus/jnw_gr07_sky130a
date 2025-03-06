@@ -21,6 +21,8 @@ You can also test the circuit temperature_to_current_tord in the directory jnw_g
 at temperatures from -20 to 120, resulting in what seems to be a linear current proportional to absolute 
 temperature (ptat), as shown in jnw_gr07_sky130a/sim/temperature_to_current_tord/ptat_vs_temp.png.
 
+![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
+
 
 # Who
 
