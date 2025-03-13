@@ -12,8 +12,8 @@ ypos2=2
 divy=5
 
 unity=1
-x1=-0.00017075282
-x2=0.0010923806
+x1=-0.0001279994
+x2=0.001135134
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -67,8 +67,8 @@ value="
 .save all
 .control
 *optran 0 0 0 10m 10n 0
-*tran 10n 1m
-op
+tran 10n 1m
+*op
 write amplifier_tb.raw
 *exit
 .endc

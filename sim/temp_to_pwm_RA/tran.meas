@@ -1,0 +1,17 @@
+* Measure temp_to_pwm_RA
+.control
+
+*load {cicname}.raw
+
+echo "MEAS_START"
+
+set fend = .raw
+foreach vtemp -40 -20 0 20 40 60 80 100 120
+    option temp=$vtemp
+    load {cicname}_$vtemp$fend
+    meas tran Deg$vtemp FIND v(dec_b) WHEN v(pwm)=1 Rise=last
+    echo "something"
+end
+
+echo "MEAS_END"
+.endc

@@ -8,14 +8,14 @@ N -140 110 -100 110 {lab=VSS}
 N -140 160 -100 160 {lab=VSS}
 N -100 140 -100 160 {lab=VSS}
 N 60 160 100 160 {lab=VSS}
-N -200 -40 -140 -40 {lab=Vin+}
+N -200 -40 -140 -40 {lab=VINP}
 N -100 -10 -100 80 {lab=OTA_CM_gate}
 N 80 20 80 80 {lab=Vout}
 N 80 -10 80 20 {lab=Vout}
 N -100 -70 80 -70 {lab=OTA_VDD}
 N -40 60 -40 110 {lab=OTA_CM_gate}
 N -100 60 -40 60 {lab=OTA_CM_gate}
-N 120 -40 160 -40 {lab=Vin-}
+N 120 -40 160 -40 {lab=VINN}
 N -100 -40 -60 -40 {lab=OTA_VDD}
 N -60 -40 80 -40 {lab=OTA_VDD}
 N -20 -120 -20 -70 {lab=OTA_VDD}
@@ -53,12 +53,12 @@ N -160 110 -160 160 {lab=VSS}
 N -160 160 -140 160 {lab=VSS}
 N -400 -150 -380 -150 {lab=VDD}
 N -20 -150 40 -150 {lab=VDD}
-C {devices/ipin.sym} -200 -40 0 0 {name=p1 lab=Vin+
+C {devices/ipin.sym} -200 -40 0 0 {name=p1 lab=VINP
 }
-C {devices/ipin.sym} 160 -40 2 0 {name=p2 lab=Vin-}
+C {devices/ipin.sym} 160 -40 2 0 {name=p2 lab=VINN}
 C {devices/ipin.sym} -420 -220 0 0 {name=p3 lab=VDD}
 C {devices/ipin.sym} -420 200 0 0 {name=p4 lab=VSS}
-C {devices/opin.sym} 160 40 0 0 {name=p5 lab=Vout
+C {devices/opin.sym} 160 40 0 0 {name=p5 lab=VOUT
 }
 C {JNW_ATR_SKY130A/JNWATR_NCH_4C5F0.sym} -60 110 0 1 {name=x1[1:0]}
 C {JNW_ATR_SKY130A/JNWATR_NCH_4C5F0.sym} 40 110 0 0 {name=x2[1:0]}

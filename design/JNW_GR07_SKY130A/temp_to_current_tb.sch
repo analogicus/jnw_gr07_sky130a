@@ -7,7 +7,6 @@ E {}
 N -140 -20 -100 -20 {lab=#net1}
 N -140 20 -100 20 {lab=0}
 N -140 20 -140 60 {lab=0}
-N 110 -0 190 0 {lab=I_T_tb}
 N -190 -40 -140 -40 {lab=#net1}
 N -190 -40 -190 -30 {lab=#net1}
 N -190 30 -190 60 {lab=0}
@@ -19,8 +18,8 @@ N 280 70 280 90 {lab=0}
 N 280 0 280 10 {lab=#net2}
 N 280 -60 280 0 {lab=#net2}
 N 260 -60 280 -60 {lab=#net2}
-N 200 -60 200 0 {lab=I_T_tb}
-N 190 -0 200 -0 {lab=I_T_tb}
+N 200 -60 200 -0 {lab=I_T_tb}
+N 110 0 200 -0 {lab=I_T_tb}
 C {JNW_GR07_SKY130A/temp_to_current.sym} 50 0 0 0 {name=x1}
 C {devices/lab_wire.sym} -170 60 0 0 {name=p1 sig_type=std_logic lab=0}
 C {devices/vsource.sym} -190 0 0 0 {name=V3 value=1.8 savecurrent=false}
