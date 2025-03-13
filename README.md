@@ -31,7 +31,7 @@ and used to discharge the capacitor (as well as reseting a digital counter). The
 then dependent on temperature, as can be seen in the plot below. The circuit can be found in design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch,
 and a testbench for simple validation is found in design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch.
 
-![i_ptat](/sim/temperature_to_pwm_RA/plot.png)
+![i_ptat](/sim/temp_to_pwm_RA/plot.png)
 
 Testing the circuit:
 1. enter /sim/temp_to_pwm_RA
