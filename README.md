@@ -23,6 +23,22 @@ temperature (ptat), as shown in jnw_gr07_sky130a/sim/temperature_to_current_tord
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
+# Milestone 2
+
+For milestone 2 we have converted the current to a digital output. This is done by using the current to charge a
+capacitor, controlling a comparator. The output of the comparator is fed through a buffer, clocked in a register,
+and used to discharge the capacitor (as well as reseting a digital counter). The value of the digital counter is
+then dependent on temperature, as can be seen in the plot below. The circuit can be found in design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch,
+and a testbench for simple validation is found in design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch.
+
+![i_ptat](/sim/temperature_to_pwm_RA/plot.png)
+
+Testing the circuit:
+1. enter /sim/temp_to_pwm_RA
+2. type "make typical". This will simulate the circuit using the digital circuit found in "digital.so" (compiled using "digital.v"),
+the testbench in "tran.spi", and the "tran.meas" file. (note that simulating takes a lot of time since it runs across multiple temperatures!)
+3. plot the output using "plot.py" => "python plot.py output_tran/{...}.yaml"
+4. the plot is saved as "plot.png"
 
 # Who
 
@@ -49,6 +65,7 @@ We used tools such as xschem, ngspice, and magic.
 | Layout    | design/JNW_GR07_SKY130A/JNW_GR07.mag |
 | Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch |
 | Schematic | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch |
+| Schematic | design/JNW_GR07_SKY130A/temperature_to_pwm_RA.sch |
 
 
 # Changelog/Plan
@@ -57,7 +74,7 @@ We used tools such as xschem, ngspice, and magic.
 | :---| :---| :---|
 |0.1.0 | :white_check_mark: | Milestone 0: Sim setup |
 |0.1.1 | :white_check_mark: | Milestone 1: Current PTAT |
-|0.1.2 | :x: | Milestone 2: Digital output |
+|0.1.2 | :white_check_mark: | Milestone 2: Digital output |
 |0.1.3 | :x: | Milestone 3: Layout |
 
 
