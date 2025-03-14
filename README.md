@@ -19,7 +19,7 @@ and plot the current "i(v.xdut.v1)". :)
 You can also test an equivalent circuit with some ideal components by running the command "make typical" from 
 the directory sim/temperature_to_current_tord/. This will simulate the corresponding circuit at temperatures 
 from -20 to 120, resulting in what seems to be a linear current proportional to absolute temperature (ptat). 
-The plot is saved as /sim/temperature_to_current_tord/ptat_vs_temp.png, and can be seen in the image below.
+The plot is saved as ptat_vs_temp.png, and can be seen in the image below.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
