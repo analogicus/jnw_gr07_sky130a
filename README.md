@@ -45,6 +45,8 @@ It can be shown using previous formulas (found in section "Temp to Current, PTAT
 meaning that a higher T results in lower $t_0$. This means that higher temperatures results in a PWM signal with higher mean voltage (RMS). This is depicted
 the figure below.
 
+![i_ptat](/Images/TempToPWM.png)
+
 \textbf{Note}: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
 
 # Milestone 1
