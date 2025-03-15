@@ -5,6 +5,19 @@
 [![DOCS](../../actions/workflows/docs.yaml/badge.svg)](../../actions/workflows/docs.yaml)
 [![SIM](../../actions/workflows/sim.yaml/badge.svg)](../../actions/workflows/sim.yaml)
 
+# System description
+This is a temperature measurement circuit. It is built up of two blocks:
+1. Temp to Current, a circuit that outputs a current proportional to temperature (PTAT)
+2. Current to PWM, a circuit that outputs a digital PWM signal proportional to temperature
+The system is depicted below
+
+# Temp to Current, PTAT
+The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
+in the image below. The circuit exploits the temperature (T) dependency and size difference (N)
+of diode 1 and diode 2 to create a current I(T) dependent on temperature. The voltage over diode 1
+is V_{D1} = V_T ln(I_D/I_{S1})
+
+Note: The diodes are realized by NPN transistors.
 
 # Milestone 1
 
