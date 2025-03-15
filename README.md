@@ -19,10 +19,21 @@ is $V_{D1} = V_T ln\frac{I_D}{I_{S1}}$, and the voltage over diode 2 is $V_{D2} 
 Assuming that the opamp is ideal, the voltage on it's negative input is set equal to it's positive input,
 meaning $V_{D1} = V^- = V^+$. This creates a voltage drop accross the resistor $R_1$ of $V_{R_1} = V_{D1} - V_{D2} = V_T ln\frac{I_S2}{I_{S1}}$.
 Since diode 2 is N larger than diode 1, we can assume $I_{S2} \approx N I_{S1}$, meaning that $V_{R_1}$ can be simplified to $V_{R_1} \approx V_T ln(N)$.
-The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_1} ln (N).
-Since $V_T = \frac{kT}{q}, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$.
+The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_1} ln (N)$.
+Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$. This current is copied using a current mirror,
+ creating $I(T)$ and used as an output.
 
 Note: The diodes are realized by NPN transistors.
+
+# Current to PWM
+The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
+in the image below. The circuit used the input current $I(T)$ to charge a capacitor. The voltage across the capacitor is used as input voltage of the positive
+node of a comparator, $V^+ = V_C$. The negative node is connected to a reference voltage $V^- = V_{ref}$, created by a voltage divider consisting of two resistors, $R_2$ and $R_3$.
+This gives $V^- = V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} I(T)C \,dt \approx tI(T)C$, assuming that
+1. $V_C(t=0) = 0$
+2. $\frac{\partial I(T)}{\partial x}$
+
+Note: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
 
 # Milestone 1
 
