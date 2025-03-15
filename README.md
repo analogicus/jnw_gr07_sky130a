@@ -29,10 +29,10 @@ This will sweep the temperature in the range -40 to 120 C
 To see the results run "cicsim wave output_tran/tran_SchGtKttTtVt.raw"
 and plot the current "i(v.xdut.v1)". :)
 
-You can also test the circuit temperature_to_current_tord in the directory jnw_gr07_sky130a/design/ by running 
-"make typical" from the directory jnw_gr07_sky130a/sim/temperature_to_current_tord/. This will simulate the circuit 
-at temperatures from -20 to 120, resulting in what seems to be a linear current proportional to absolute 
-temperature (ptat), as shown in jnw_gr07_sky130a/sim/temperature_to_current_tord/ptat_vs_temp.png.
+You can also test an equivalent circuit with some ideal components by running the command "make typical" from 
+the directory sim/temperature_to_current_tord/. This will simulate the corresponding circuit at temperatures 
+from -20 to 120, resulting in what seems to be a linear current proportional to absolute temperature (ptat). 
+The plot is saved as ptat_vs_temp.png, and can be seen in the image below.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
