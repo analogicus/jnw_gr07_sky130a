@@ -15,7 +15,12 @@ The system is depicted below
 The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
 in the image below. The circuit exploits the temperature (T) dependency and size difference (N)
 of diode 1 and diode 2 to create a current I(T) dependent on temperature. The voltage over diode 1
-is $V_{D1} = V_T ln(I_D/I_{S1})$
+is $V_{D1} = V_T ln\frac{I_D}{I_{S1}}$, and the voltage over diode 2 is $V_{D2} = V_T ln\frac{I_D}{I_{S2}}$.
+Assuming that the opamp is ideal, the voltage on it's negative input is set equal to it's positive input,
+meaning $V_{D1} = V^- = V^+$. This creates a voltage drop accross the resistor $R_1$ of $V_{R_1} = V_{D1} - V_{D2} = V_T ln\frac{I_S2}{I_{S1}}$.
+Since diode 2 is N larger than diode 1, we can assume $I_{S2} \approx N I_{S1}$, meaning that $V_{R_1}$ can be simplified to $V_{R_1} \approx V_T ln(N)$.
+The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_1} ln (N).
+Since $V_T = \frac{kT}{q}, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$.
 
 Note: The diodes are realized by NPN transistors.
 
