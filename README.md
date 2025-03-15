@@ -15,7 +15,7 @@ The system is depicted below
 The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
 in the image below. The circuit exploits the temperature (T) dependency and size difference (N)
 of diode 1 and diode 2 to create a current I(T) dependent on temperature. The voltage over diode 1
-is V_{D1} = V_T ln(I_D/I_{S1})
+is $V_{D1} = V_T ln(I_D/I_{S1})$
 
 Note: The diodes are realized by NPN transistors.
 
