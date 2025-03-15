@@ -23,17 +23,25 @@ The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_
 Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$. This current is copied using a current mirror,
  creating $I(T)$ and used as an output.
 
-Note: The diodes are realized by NPN transistors.
+\textbf{Note}: The diodes are realized by NPN transistors.
 
 # Current to PWM
 The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
 in the image below. The circuit used the input current $I(T)$ to charge a capacitor. The voltage across the capacitor is used as input voltage of the positive
 node of a comparator, $V^+ = V_C$. The negative node is connected to a reference voltage $V^- = V_{ref}$, created by a voltage divider consisting of two resistors, $R_2$ and $R_3$.
-This gives $V^- = V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} I(T)C \,dt \approx tI(T)C$, assuming that
-1. $V_C(t=0) = 0$
-2. $\frac{\partial I(T)}{\partial x}$
+This gives $V^- = V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} I(T)C \ dt \approx tI(T)C$, assuming that
+1. $V_C(t=0) = 0$, the voltage starts at 0 when time is 0.
+2. $\frac{\partial T}{\partial x} = 0$, the temperature is not dependent on time.
 
-Note: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
+The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)$. Using the previous equations this can be written as $V_{ref} = t_0I(T)C$.
+$t_0$ is thus given by $t_0 = \frac{V_{ref}}{I(t)C}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
+is the PWM signal, and is simultaneously used to reset the circuit. The reset is done by discharging the capacitor using an nmos connected to ground.
+
+It can be shown using previous formulas (found in section "Temp to Current, PTAT"), that $\frac{\partial I(T)}{\partial T} > 0$,
+meaning that a higher T results in lower $t_0$. This means that higher temperatures results in a PWM signal with higher mean voltage (RMS). This is depicted
+the figure below.
+
+\textbf{Note}: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
 
 # Milestone 1
 
