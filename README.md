@@ -153,7 +153,7 @@ the testbench in "tran.spi", and the "tran.meas" file. (**Note** that simulating
 3. plot the output using "plot.py" => "python plot.py output_tran/{...}.yaml"
 4. the plot is saved as "plot.png", and is depicted below.
 
-Note that the digital output is expressed as a float value, explaining its magnitude. Also, the sudden drop at 120 degrees will be looked into :) (althoug since this is a unique digital
+Note that the digital output is expressed as a float value, explaining the magnitude of the y-axis. Also, the sudden drop at 120 degrees will be looked into :) (althoug since this is a unique digital
 value, it would not cause problems in a digital circuit...)
 
 ![pwm_vs_temperature](/sim/temp_to_pwm_RA/plot.png)
