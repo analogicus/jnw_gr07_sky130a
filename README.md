@@ -114,7 +114,9 @@ from -30 to 130 degrees celcius.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
-The plots of other yaml files can be seen by running the python file plot_ptat.py with the yaml file(s) location in the folder "output_tran/" as arguments, ex: python plot_ptat.py output_tran/tran_SchGtKttTtVt output_tran/tran_SchGtKffThVl output_tran/tran_SchGtKssThVl output_tran/tran_SchGtKsfThVl output_tran/tran_SchGtKfsThVl.
+The plots of other yaml files can be seen by running the python file plot_ptat.py with the yaml file(s) location in the folder "output_tran/" as arguments, ex: python plot_ptat.py output_tran/tran_SchGtKttTtVt output_tran/tran_SchGtKffThVl output_tran/tran_SchGtKssThVl output_tran/tran_SchGtKsfThVl output_tran/tran_SchGtKfsThVl. This will save the plot as plots/ptat_vs_temp.png
+
+![i_ptat](/sim/temperature_to_current_tord/plots/ptat_vs_temp.png)
 
 # Current to PWM
 **Aka Milestone 2**
