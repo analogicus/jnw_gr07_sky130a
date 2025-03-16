@@ -78,7 +78,7 @@ The system is depicted below
 # Temp to Current, PTAT
 **Aka Milestone 1**
 
-The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
+The PTAT circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_current.sch**", and is shown
 in the figure below. 
 
 ![ptat_circuit](/Images/PTAT.png)
@@ -103,17 +103,17 @@ To test the circuit follow these steps:
 3. To see results run "cicsim wave output/tran_SchGtKttTtVt.raw" and plot the current "i(v.xdut.v1)".
 -->
 
-1. enter directory "sim/temperature_to_current_tord/"
-2. run "make typical". This will simulate the circuit at temperatures 
+1. enter directory "**sim/temperature_to_current_tord/**"
+2. run "**make typical**". This will simulate the circuit at temperatures 
 from -20 to 120 degrees celcius.
-3. The simulations results in the plot seen below. The plot is saves as ptat_vs_temp.png.
+3. The simulations results in the plot seen below. The plot is saves as **ptat_vs_temp.png**.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
 # Current to PWM
 **Aka Milestone 2**
 
-The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
+The current to PWM circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch**", and is shown
 in the figure below.
 
 ![PWM_circuit](/Images/TempToPWM.png)
@@ -128,7 +128,7 @@ The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)
 $t_0$ is thus given by $t_0 = \frac{V_{ref}}{I(t)C}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
 is the PWM signal, and is simultaneously used to reset the circuit. The reset is done by discharging the capacitor using an nmos, N1, connected to ground.
 
-It can be shown using previous formulas (found in section "Temp to Current, PTAT"), that $\frac{\partial I(T)}{\partial T} > 0$,
+It can be shown using previous formulas (found in section "**Temp to Current, PTAT**"), that $\frac{\partial I(T)}{\partial T} > 0$,
 meaning that a higher T results in lower $t_0$. This means that higher temperatures results in a PWM signal with higher mean voltage (RMS). This is depicted
 the figure below, where temperature $T1 > T0$.
 
@@ -148,10 +148,10 @@ To run simulations follow
 these steps:
 
 1. enter directory /sim/temp_to_pwm_RA
-2. type "make typical". This will simulate the circuit using the digital circuit found in "digital.so" (compiled using "digital.v"),
-the testbench in "tran.spi", and the "tran.meas" file. (**Note** that simulating takes a lot of time since it runs across multiple temperatures!)
-3. plot the output using "plot.py" => "python plot.py output_tran/{...}.yaml"
-4. the plot is saved as "plot.png", and is depicted below.
+2. type "**make typica**l". This will simulate the circuit using the digital circuit found in "**digital.so**" (compiled using "**digital.v**"),
+the testbench in "**tran.spi**", and the "**tran.meas**" file. (**Note** that simulating takes a lot of time since it runs across multiple temperatures!)
+3. plot the output using "**plot.py**" => "**python plot.py output_tran/{...}.yaml**"
+4. the plot is saved as "**plot.png**", and is depicted below.
 
 Note that the digital output is expressed as a float value, explaining the magnitude of the y-axis. Also, the sudden drop at 120 degrees will be looked into :) (althoug since this is a unique digital
 value, it would not cause problems in a digital circuit...)
