@@ -72,6 +72,7 @@ The system is depicted below
 
 # Temp to Current, PTAT
 **Aka Milestone 1**
+
 The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
 in the image below. 
 
@@ -107,6 +108,7 @@ The plot is saved as ptat_vs_temp.png, and can be seen in the image below.
 
 # Current to PWM
 **Aka Milestone 2**
+
 The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
 in the image below.
 
@@ -132,7 +134,7 @@ the figure below, where temperature $T1 > T0$.
 
 ## Testing of the PTAT circuit
 
-In order to extract $t_0¤, the PWM circuit is used to control a digital counter during testing. The counter will continously count upwards,
+In order to extract $t_0$, the PWM circuit is used to control a digital counter during testing. The counter will continously count upwards,
 reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. To run simulations follow
 these steps:
 
