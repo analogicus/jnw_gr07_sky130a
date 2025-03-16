@@ -39,12 +39,14 @@ We used tools such as xschem, ngspice, and magic.
 
 # Changelog/Plan
 
-| Version | Status | Comment|
+| Version | Status | Comment |
 | :---| :---| :---|
 |0.1.0 | :white_check_mark: | Milestone 0: Sim setup |
 |0.1.1 | :white_check_mark: | Milestone 1: Current PTAT |
 |0.1.2 | :white_check_mark: | Milestone 2: Digital output |
-|0.1.3 | :x: | Milestone 3: Layout |
+|0.1.3 | :x: | Simulate circuit at different corners |
+|0.1.4 | :x: | Simulate circuit at different supply voltages |
+|0.1.5 | :x: | Milestone 3: Layout |
 
 
 # Signal interface
@@ -83,7 +85,6 @@ The PTAT circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_current.sch*
 in the figure below. 
 
 ![ptat_circuit](/Images/PTAT.png)
-![ptat_circuit](https://github.com/analogicus/jnw_gr07_sky130a/blob/main/Images/PTAT.png)
 
 
 The circuit exploits the temperature (T) dependency and size difference (N)
