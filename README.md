@@ -158,8 +158,8 @@ value, it would not cause problems in a digital circuit...)
 
 ![pwm_vs_temperature](/sim/temp_to_pwm_RA/plot.png)
 
-**Note**: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
+**Note**: There also exists a simple testbench, "**design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch**", that can be used for initial simulations of the circuit.
 
 # OTA
 
-The amplifier in the PTAT circuit and the comparator in the PWM circuit is both realized by identical OTA's. The OTA can be found in "design/JNW_GR07_SKY130A/amplifier.sch". The OTA is a differential input, single stage transducer. A simple testbench can be found in "design/JNW_GR07_SKY130A/amplifier_tb.sch".
+The amplifier in the PTAT circuit and the comparator in the PWM circuit is both realized by identical OTA's. The OTA can be found in "**design/JNW_GR07_SKY130A/amplifier.sch**". The OTA is a differential input, single stage transducer. A simple testbench can be found in "**design/JNW_GR07_SKY130A/amplifier_tb.sch**".
