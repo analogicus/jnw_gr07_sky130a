@@ -102,7 +102,7 @@ Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_
 ## Testing of the PTAT circuit
 To test the circuit follow these steps:
 <!-- 
-1. enter directory "jnw_gr07_sky130a/sim/temp_to_current_tb"
+1. enter directory "jnw_gr07_sky130a/sim/temp_to_current_tb "
 2. run "make typical". This will sweep the temperature in the range -40 to 130 degrees celcius
 3. To see results run "cicsim wave output/tran_SchGtKttTtVt.raw" and plot the current "i(v.xdut.v1)".
 -->
