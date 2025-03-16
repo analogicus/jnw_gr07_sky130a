@@ -27,12 +27,12 @@ We used tools such as xschem, ngspice, and magic.
 
 | What      | Cell/Name |
 | :-        | :-:       |
-| Schematic | design/JNW_GR07_SKY130A/JNW_GR07.sch |
-| Layout    | design/JNW_GR07_SKY130A/JNW_GR07.mag |
-| Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch |
+| Schematic | design/JNW_GR07_SKY130A/amplifier.sch |
 | Schematic | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch |
-| Schematic | design/JNW_GR07_SKY130A/temperature_to_pwm_RA.sch |
+| Schematic | design/JNW_GR07_SKY130A/temp_to_current.sch |
+| Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch |
 
+<!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch | -->
 
 # Changelog/Plan
 
@@ -48,18 +48,19 @@ We used tools such as xschem, ngspice, and magic.
 
 | Signal    | Direction | Domain  | Description          |
 | :---      | :---:     | :---:   | :---                 |
-| VDD_1V8   | Input     | VDD_1V8 | Main supply          |
+| VDD       | Input     | VDD_1V8 | Main supply          |
 | VSS       | Input     | Ground  |                      |
-| PWRUP_1V8 | Input     | VDD_1V8 | Power up the circuit |
+| CLK       | Input     | Clock   | Clock signal         |
+| PWM       | Output    | Digital | Digital output signal proportional to temperature |
 
 
 # Key parameters
 
-| Parameter           | Min     | Typ           | Max     | Unit  |
-| :---                | :---:     | :---:           | :---:     | :---: |
+| Parameter           | Min     | Typ             | Max     | Unit  |
+| :---                | :---:     | :---:         | :---:   | :---: |
 | Technology          |         | Skywater 130 nm |         |       |
-| AVDD                | 1.7    | 1.8           | 1.9    | V     |
-| Temperature         | -40     | 27            | 125     | C     |
+| AVDD                | 1.7     | 1.8             | 1.9     | V     |
+| Temperature         | -40     | 27              | 120     | C     |
 
 
 # System description
@@ -83,7 +84,7 @@ of diode 1 and diode 2 to create a current I(T) dependent on temperature. The vo
 is $V_{D1} = V_T ln\frac{I_D}{I_{S1}}$, and the voltage over diode 2 is $V_{D2} = V_T ln\frac{I_D}{I_{S2}}$.
 Assuming that the opamp is ideal, the voltage on it's negative input is set equal to it's positive input,
 meaning $V_{D1} = V^- = V^+$. This creates a voltage drop accross the resistor $R_1$ of $V_{R_1} = V_{D1} - V_{D2} = V_T ln\frac{I_{S2}}{I_{S1}}$.
-Since diode 2 is N larger than diode 1, we can assume $I_{S2} \approx N I_{S1}$, meaning that $V_{R_1}$ can be simplified to $V_{R_1} \approx V_T ln(N)$.
+Since diode 2 is N times larger than diode 1, we can assume $I_{S2} \approx N I_{S1}$, meaning that $V_{R_1}$ can be simplified to $V_{R_1} \approx V_T ln(N)$.
 The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_1} ln (N)$.
 Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$. This current is copied using a current mirror,
  creating $I(T)$ and used as an output.
@@ -91,18 +92,17 @@ Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_
 **Note**: The diodes are realized by the NPN transistors Q1 and Q2.
 
 ## Testing of the PTAT circuit
+To test the circuit follow these steps:
+<!-- 
+1. enter directory "jnw_gr07_sky130a/sim/temp_to_current_tb"
+2. run "make typical". This will sweep the temperature in the range -40 to 120 degrees celcius
+3. To see results run "cicsim wave output/tran_SchGtKttTtVt.raw" and plot the current "i(v.xdut.v1)".
+-->
 
-To test the milestone pull the repo, go into directory
-jnw_gr07_sky130a/sim/temp_to_current_tb
-and run "make typical"
-This will sweep the temperature in the range -40 to 120 C
-To see the results run "cicsim wave output_tran/tran_SchGtKttTtVt.raw"
-and plot the current "i(v.xdut.v1)". :)
-
-You can also test an equivalent circuit with some ideal components by running the command "make typical" from 
-the directory sim/temperature_to_current_tord/. This will simulate the corresponding circuit at temperatures 
-from -20 to 120, resulting in what seems to be a linear current proportional to absolute temperature (ptat). 
-The plot is saved as ptat_vs_temp.png, and can be seen in the image below.
+1. enter directory "sim/temperature_to_current_tord/"
+2. run "make typical". This will simulate the circuit at temperatures 
+from -20 to 120 degrees celcius.
+3. The simulations results in the plot seen below. The plot is saves as ptat_vs_temp.png.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
