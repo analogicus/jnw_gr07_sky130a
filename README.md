@@ -78,7 +78,7 @@ The system is depicted below
 
 ![system](/Images/SystemBlock.png)
 
-# Temp to Current, PTAT
+# Temperature to Current, PTAT
 **Aka Milestone 1**
 
 The PTAT circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_current.sch**", and is shown
@@ -124,12 +124,12 @@ in the figure below.
 
 The circuit used the input current $I(T)$ to charge a capacitor. The voltage across the capacitor is used as input voltage of the positive
 node of a comparator, $V^+ = V_C$. The negative node is connected to a reference voltage $V^- = V_{ref}$, created by a voltage divider consisting of two resistors, $R_2$ and $R_3$.
-This gives $V^- = V_{ref}= V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} I(T)C \ dt \approx tI(T)C$, assuming that
+This gives $V^- = V_{ref}= V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} \frac{I(T)}{C} \ dt \approx \frac{tI(T)}{C}$, assuming that
 1. $V_C(t=0) = 0$, the voltage starts at 0 when time is 0.
 2. $\frac{\partial T}{\partial t} = 0$, the temperature is not dependent on time.
 
-The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)$. Using the previous equations this can be written as $V_{ref} = t_0I(T)C$.
-$t_0$ is thus given by $t_0 = \frac{V_{ref}}{I(t)C}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
+The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)$. Using the previous equations this can be written as $V_{ref} = \frac{t_0I(T)}{C}$.
+$t_0$ is thus given by $t_0 = \frac{V_{ref}C}{I(t)}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
 is the PWM signal, and is simultaneously used to reset the circuit. The reset is done by discharging the capacitor using an nmos, N1, connected to ground.
 
 It can be shown using previous formulas (found in section "**Temp to Current, PTAT**"), that $\frac{\partial I(T)}{\partial T} > 0$,
@@ -140,7 +140,7 @@ the figure below, where temperature $T1 > T0$.
 
 
 
-## Testing of the PTAT circuit
+## Testing of the PWM circuit
 
 In order to extract $t_0$, the PWM circuit is used to control a 8-bit digital counter during testing. The counter will continously count upwards,
 reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. The test circuit is
@@ -162,7 +162,9 @@ value, it would not cause problems in a digital circuit...)
 
 ![pwm_vs_temperature](/sim/temp_to_pwm_RA/plot.png)
 
-**Note**: There also exists a simple testbench, "**design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch**", that can be used for initial simulations of the circuit.
+**Note**:
+1. There also exists a simple testbench, "**design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch**", that can be used for initial simulations of the circuit.
+2. The temperature to current block used for the PWM circuit can be found in "**desin/JNW_GR07_SKY130A/temp_to_current.sch**", and is **not** sized identical to the one tested in chapter **Temp to current, PTAT**.
 
 # OTA
 
