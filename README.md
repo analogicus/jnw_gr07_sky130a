@@ -138,7 +138,7 @@ the figure below, where temperature $T1 > T0$.
 
 ## Testing of the PTAT circuit
 
-In order to extract $t_0$, the PWM circuit is used to control a digital counter during testing. The counter will continously count upwards,
+In order to extract $t_0$, the PWM circuit is used to control a 8-bit digital counter during testing. The counter will continously count upwards,
 reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. The test circuit is
 depicted in the figure below.
 
@@ -153,7 +153,8 @@ the testbench in "tran.spi", and the "tran.meas" file. (**Note** that simulating
 3. plot the output using "plot.py" => "python plot.py output_tran/{...}.yaml"
 4. the plot is saved as "plot.png", and is depicted below.
 
-Note that the digital output is expressed as a float value.
+Note that the digital output is expressed as a float value, explaining its magnitude. Also, the sudden drop at 120 degrees will be looked into :) (althoug since this is a unique digital
+value, it would not cause problems in a digital circuit...)
 
 ![pwm_vs_temperature](/sim/temp_to_pwm_RA/plot.png)
 

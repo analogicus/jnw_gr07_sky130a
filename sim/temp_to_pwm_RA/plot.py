@@ -2,6 +2,7 @@ import yaml
 import matplotlib.pyplot as plt
 import sys
 import re
+import os
 
 #input a file to plot
 fname = sys.argv[1]
@@ -19,4 +20,10 @@ for measurement in obj:
     measurements.append(measurement)
 
 plt.plot(temperatures,measurements, linestyle="", marker="o")
+plt.xlabel("Temperature [°C]")
+plt.ylabel("Digital output")
+plt.title("Temperature vs digital output")
+plt.grid(True)
+
+plt.savefig("plot.png", dpi=300)
 plt.show()
