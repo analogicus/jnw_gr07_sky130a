@@ -116,7 +116,7 @@ from -20 to 120 degrees celcius.
 The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
 in the figure below.
 
-![i_ptat](/Images/TempToPWM.png)
+![PWM_circuit](/Images/TempToPWM.png)
 
 The circuit used the input current $I(T)$ to charge a capacitor. The voltage across the capacitor is used as input voltage of the positive
 node of a comparator, $V^+ = V_C$. The negative node is connected to a reference voltage $V^- = V_{ref}$, created by a voltage divider consisting of two resistors, $R_2$ and $R_3$.
@@ -132,22 +132,29 @@ It can be shown using previous formulas (found in section "Temp to Current, PTAT
 meaning that a higher T results in lower $t_0$. This means that higher temperatures results in a PWM signal with higher mean voltage (RMS). This is depicted
 the figure below, where temperature $T1 > T0$.
 
-![i_ptat](/Images/TimingDiagram.png)
+![timing_diagram](/Images/TimingDiagram.png)
 
 
 
 ## Testing of the PTAT circuit
 
 In order to extract $t_0$, the PWM circuit is used to control a digital counter during testing. The counter will continously count upwards,
-reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. To run simulations follow
+reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. The test circuit is
+depicted in the figure below.
+
+![test_setup](/Images/TestCircuit.png)
+
+To run simulations follow
 these steps:
 
 1. enter directory /sim/temp_to_pwm_RA
 2. type "make typical". This will simulate the circuit using the digital circuit found in "digital.so" (compiled using "digital.v"),
 the testbench in "tran.spi", and the "tran.meas" file. (**Note** that simulating takes a lot of time since it runs across multiple temperatures!)
 3. plot the output using "plot.py" => "python plot.py output_tran/{...}.yaml"
-4. the plot is saved as "plot.png", and is depicted below
+4. the plot is saved as "plot.png", and is depicted below.
 
-![i_ptat](/sim/temp_to_pwm_RA/plot.png)
+Note that the digital output is expressed as a float value.
+
+![pwm_vs_temperature](/sim/temp_to_pwm_RA/plot.png)
 
 **Note**: There also exists a simple testbench, "design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch", that can be used for initial simulations of the circuit.
