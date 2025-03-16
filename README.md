@@ -83,6 +83,8 @@ The PTAT circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_current.sch*
 in the figure below. 
 
 ![ptat_circuit](/Images/PTAT.png)
+![ptat_circuit](https://github.com/analogicus/jnw_gr07_sky130a/blob/main/Images/PTAT.png)
+
 
 The circuit exploits the temperature (T) dependency and size difference (N)
 of diode 1 and diode 2 to create a current I(T) dependent on temperature. The voltage over diode 1
