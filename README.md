@@ -30,7 +30,9 @@ We used tools such as xschem, ngspice, and magic.
 | Schematic | design/JNW_GR07_SKY130A/amplifier.sch |
 | Schematic | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch |
 | Schematic | design/JNW_GR07_SKY130A/temp_to_current.sch |
+| Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch |
 | Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch |
+| Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch |
 
 <!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch | -->
 
@@ -67,17 +69,19 @@ We used tools such as xschem, ngspice, and magic.
 This is a temperature measurement circuit. It is built up of two blocks:
 1. Temp to Current, a circuit that outputs a current proportional to temperature (PTAT)
 2. Current to PWM, a circuit that outputs a digital PWM signal proportional to temperature
+
+
 The system is depicted below
 
-![i_ptat](/Images/SystemBlock.png)
+![system](/Images/SystemBlock.png)
 
 # Temp to Current, PTAT
 **Aka Milestone 1**
 
 The PTAT circuit can be found in "design/JNW_GR07_SKY130A/temp_to_current.sch", and is shown
-in the image below. 
+in the figure below. 
 
-![i_ptat](/Images/PTAT.png)
+![ptat_circuit](/Images/PTAT.png)
 
 The circuit exploits the temperature (T) dependency and size difference (N)
 of diode 1 and diode 2 to create a current I(T) dependent on temperature. The voltage over diode 1
@@ -110,7 +114,7 @@ from -20 to 120 degrees celcius.
 **Aka Milestone 2**
 
 The current to PWM circuit can be found in "design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch", and is shown
-in the image below.
+in the figure below.
 
 ![i_ptat](/Images/TempToPWM.png)
 
@@ -118,7 +122,7 @@ The circuit used the input current $I(T)$ to charge a capacitor. The voltage acr
 node of a comparator, $V^+ = V_C$. The negative node is connected to a reference voltage $V^- = V_{ref}$, created by a voltage divider consisting of two resistors, $R_2$ and $R_3$.
 This gives $V^- = V_{ref}= V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the capacitor can be approximated as $V_C(t) = V^+ = \int_{0}^{t} I(T)C \ dt \approx tI(T)C$, assuming that
 1. $V_C(t=0) = 0$, the voltage starts at 0 when time is 0.
-2. $\frac{\partial T}{\partial x} = 0$, the temperature is not dependent on time.
+2. $\frac{\partial T}{\partial t} = 0$, the temperature is not dependent on time.
 
 The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)$. Using the previous equations this can be written as $V_{ref} = t_0I(T)C$.
 $t_0$ is thus given by $t_0 = \frac{V_{ref}}{I(t)C}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
