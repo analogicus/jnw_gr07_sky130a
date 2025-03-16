@@ -103,14 +103,16 @@ Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_
 To test the circuit follow these steps:
 <!-- 
 1. enter directory "jnw_gr07_sky130a/sim/temp_to_current_tb"
-2. run "make typical". This will sweep the temperature in the range -40 to 120 degrees celcius
+2. run "make typical". This will sweep the temperature in the range -40 to 130 degrees celcius
 3. To see results run "cicsim wave output/tran_SchGtKttTtVt.raw" and plot the current "i(v.xdut.v1)".
 -->
 
 1. enter directory "**sim/temperature_to_current_tord/**"
 2. run "**make typical**". This will simulate the circuit at temperatures 
-from -20 to 120 degrees celcius.
-3. The simulations results in the plot seen below. The plot is saves as **ptat_vs_temp.png**.
+from -30 to 130 degrees celcius.
+3. The simulations results in the plot seen below. The plot is saves as **plots/ptat_vs_temp_SchGtKttTtVt.png**.
+
+The plots of other yaml files can be seen by running the python file plot_ptat.py with the yaml file(s) location in the folder "output_tran/" as arguments, ex: python plot_ptat.py output_tran/tran_SchGtKttTtVt output_tran/tran_SchGtKffThVl output_tran/tran_SchGtKssThVl output_tran/tran_SchGtKsfThVl output_tran/tran_SchGtKfsThVl.
 
 ![i_ptat](/sim/temperature_to_current_tord/ptat_vs_temp.png)
 
