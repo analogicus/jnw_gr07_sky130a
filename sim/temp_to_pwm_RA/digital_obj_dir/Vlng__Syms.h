@@ -4,35 +4,32 @@
 // Internal details; most calling programs do not need this header,
 // unless using verilator public meta comments.
 
-#ifndef VERILATED_VLNG__SYMS_H_
-#define VERILATED_VLNG__SYMS_H_  // guard
+#ifndef _VLNG__SYMS_H_
+#define _VLNG__SYMS_H_  // guard
 
 #include "verilated.h"
 
-// INCLUDE MODEL CLASS
-
+// INCLUDE MODULE CLASSES
 #include "Vlng.h"
 
-// INCLUDE MODULE CLASSES
-#include "Vlng___024root.h"
-
-// SYMS CLASS (contains all model state)
-class alignas(VL_CACHE_LINE_BYTES)Vlng__Syms final : public VerilatedSyms {
+// SYMS CLASS
+class Vlng__Syms : public VerilatedSyms {
   public:
-    // INTERNAL STATE
-    Vlng* const __Vm_modelp;
-    VlDeleter __Vm_deleter;
-    bool __Vm_didInit = false;
-
-    // MODULE INSTANCE STATE
-    Vlng___024root                 TOP;
-
-    // CONSTRUCTORS
-    Vlng__Syms(VerilatedContext* contextp, const char* namep, Vlng* modelp);
-    ~Vlng__Syms();
-
+    
+    // LOCAL STATE
+    const char* __Vm_namep;
+    bool __Vm_didInit;
+    
+    // SUBCELL STATE
+    Vlng*                          TOPp;
+    
+    // CREATORS
+    Vlng__Syms(Vlng* topp, const char* namep);
+    ~Vlng__Syms() {}
+    
     // METHODS
-    const char* name() { return TOP.name(); }
-};
+    inline const char* name() { return __Vm_namep; }
+    
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard

@@ -1,29 +1,12 @@
 #!/usr/bin/env python3
-# import pandas as pd
 import yaml
-# import cicsim as cs
 import matplotlib.pyplot as plt
-# import numpy as np
 
 def main(name="output_tran/tran_SchGtKttTtVt"):
-  # Delete next line if you want to use python post processing
+  # Comment the next line ("return") if you want to use python post processing
   # return
 
-  # fname = name + ".png"
-  # print(f"Saving {fname}")
-  # cs.rawplot(name + ".raw", "time", "v(ibps_5u), i(v0)", ptype="", fname=fname)
-
   yamlfile = name + ".yaml"
-
-  # Read result yaml file
-  # with open(yamlfile) as fi:
-  #   obj = yaml.safe_load(fi)
-
-  # Do something to parameters
-
-  # Save new yaml file
-  # with open(yamlfile,"w") as fo:
-  #   yaml.dump(obj,fo)
 
   temps = []
   i_r1 = []
@@ -62,7 +45,7 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
            f"Avg step i_ptat: {(ys[-1]-ys[0])/(xs[-1]-xs[0]):.2f} µA/°C",
            bbox=dict(facecolor="white", edgecolor="black"))
 
-  figname = "plots/ptat_vs_temp_" + name.split("_")[-1] + ".png"
+  figname = "ptat_vs_temp.png"
   plt.savefig(figname, bbox_inches="tight")
   plt.show()
 

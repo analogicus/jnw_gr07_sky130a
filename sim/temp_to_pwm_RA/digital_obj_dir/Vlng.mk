@@ -17,8 +17,6 @@ SYSTEMC_INCLUDE ?=
 SYSTEMC_LIBDIR ?= 
 
 ### Switches...
-# C++ code coverage  0/1 (from --prof-c)
-VM_PROFC = 0
 # SystemC output mode?  0/1 (from --sc)
 VM_SC = 0
 # Legacy or SystemC output mode?  0/1 (from --sc)
@@ -66,7 +64,7 @@ verilator_shim.o: /opt/eda/share/ngspice/scripts/src/verilator_shim.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
-Vlng: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
+Vlng: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 
