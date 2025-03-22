@@ -1,54 +1,58 @@
 // Verilated -*- C++ -*-
-// DESCRIPTION: Verilator output: Primary design header
+// DESCRIPTION: Verilator output: Primary model header
 //
 // This header should be included by all source files instantiating the design.
 // The class here is then constructed to instantiate the design.
 // See the Verilator manual for examples.
 
-#ifndef _VLNG_H_
-#define _VLNG_H_  // guard
+#ifndef VERILATED_VLNG_H_
+#define VERILATED_VLNG_H_  // guard
 
 #include "verilated.h"
 
-//==========
-
 class Vlng__Syms;
+class Vlng___024root;
 
-//----------
+// This class is the main interface to the Verilated model
+class alignas(VL_CACHE_LINE_BYTES) Vlng VL_NOT_FINAL : public VerilatedModel {
+  private:
+    // Symbol table holding complete model state (owned by this class)
+    Vlng__Syms* const vlSymsp;
 
-VL_MODULE(Vlng) {
   public:
-    
+
+    // CONSTEXPR CAPABILITIES
+    // Verilated with --trace?
+    static constexpr bool traceCapable = false;
+
     // PORTS
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
-    VL_IN8(clk,0,0);
-    VL_IN8(reset,0,0);
-    VL_OUT8(b,7,0);
-    
-    // LOCAL SIGNALS
-    // Internals; generally not touched by application code
-    CData/*0:0*/ digital__DOT__rst;
-    
-    // LOCAL VARIABLES
-    // Internals; generally not touched by application code
-    CData/*0:0*/ __Vclklast__TOP__clk;
-    
-    // INTERNAL VARIABLES
-    // Internals; generally not touched by application code
-    Vlng__Syms* __VlSymsp;  // Symbol table
-    
+    VL_IN8(&clk,0,0);
+    VL_IN8(&reset,0,0);
+    VL_OUT8(&b,7,0);
+
+    // CELLS
+    // Public to allow access to /* verilator public */ items.
+    // Otherwise the application code can consider these internals.
+
+    // Root instance pointer to allow access to model internals,
+    // including inlined /* verilator public_flat_* */ items.
+    Vlng___024root* const rootp;
+
     // CONSTRUCTORS
+    /// Construct the model; called by application code
+    /// If contextp is null, then the model will use the default global context
+    /// If name is "", then makes a wrapper with a
+    /// single model invisible with respect to DPI scope names.
+    explicit Vlng(VerilatedContext* contextp, const char* name = "TOP");
+    explicit Vlng(const char* name = "TOP");
+    /// Destroy the model; called (often implicitly) by application code
+    virtual ~Vlng();
   private:
     VL_UNCOPYABLE(Vlng);  ///< Copying not allowed
+
   public:
-    /// Construct the model; called by application code
-    /// The special name  may be used to make a wrapper with a
-    /// single model invisible with respect to DPI scope names.
-    Vlng(const char* name = "TOP");
-    /// Destroy the model; called (often implicitly) by application code
-    ~Vlng();
-    
     // API METHODS
     /// Evaluate the model.  Application must call when inputs change.
     void eval() { eval_step(); }
@@ -59,30 +63,28 @@ VL_MODULE(Vlng) {
     void eval_end_step() {}
     /// Simulation complete, run final blocks.  Application must call on completion.
     void final();
-    
-    // INTERNAL METHODS
-  private:
-    static void _eval_initial_loop(Vlng__Syms* __restrict vlSymsp);
-  public:
-    void __Vconfigure(Vlng__Syms* symsp, bool first);
-  private:
-    static QData _change_request(Vlng__Syms* __restrict vlSymsp);
-    static QData _change_request_1(Vlng__Syms* __restrict vlSymsp);
-    void _ctor_var_reset() VL_ATTR_COLD;
-  public:
-    static void _eval(Vlng__Syms* __restrict vlSymsp);
-  private:
-#ifdef VL_DEBUG
-    void _eval_debug_assertions();
-#endif  // VL_DEBUG
-  public:
-    static void _eval_initial(Vlng__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _eval_settle(Vlng__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _initial__TOP__2(Vlng__Syms* __restrict vlSymsp) VL_ATTR_COLD;
-    static void _sequent__TOP__1(Vlng__Syms* __restrict vlSymsp);
-} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
+    /// Are there scheduled events to handle?
+    bool eventsPending();
+    /// Returns time at next time slot. Aborts if !eventsPending()
+    uint64_t nextTimeSlot();
+    /// Trace signals in the model; called by application code
+    void trace(VerilatedTraceBaseC* tfp, int levels, int options = 0) { contextp()->trace(tfp, levels, options); }
+    /// Retrieve name of this model instance (as passed to constructor).
+    const char* name() const;
 
-//----------
-
+    // Abstract methods from VerilatedModel
+    const char* hierName() const override final;
+    const char* modelName() const override final;
+    unsigned threads() const override final;
+    /// Prepare for cloning the model at the process level (e.g. fork in Linux)
+    /// Release necessary resources. Called before cloning.
+    void prepareClone() const;
+    /// Re-init after cloning the model at the process level (e.g. fork in Linux)
+    /// Re-allocate necessary resources. Called after cloning.
+    void atClone() const;
+  private:
+    // Internal functions - trace registration
+    void traceBaseModel(VerilatedTraceBaseC* tfp, int levels, int options);
+};
 
 #endif  // guard

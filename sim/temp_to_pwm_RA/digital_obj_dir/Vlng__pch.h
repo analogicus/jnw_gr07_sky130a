@@ -23,4 +23,6 @@
 #include "Vlng__Syms.h"
 #include "Vlng.h"
 
+// Additional include files added using '--compiler-include'
+
 #endif  // guard

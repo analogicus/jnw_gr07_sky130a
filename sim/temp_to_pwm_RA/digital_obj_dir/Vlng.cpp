@@ -1,112 +1,98 @@
 // Verilated -*- C++ -*-
-// DESCRIPTION: Verilator output: Design implementation internals
-// See Vlng.h for the primary calling header
+// DESCRIPTION: Verilator output: Model implementation (design independent parts)
 
-#include "Vlng.h"
-#include "Vlng__Syms.h"
+#include "Vlng__pch.h"
 
-//==========
+//============================================================
+// Constructors
+
+Vlng::Vlng(VerilatedContext* _vcontextp__, const char* _vcname__)
+    : VerilatedModel{*_vcontextp__}
+    , vlSymsp{new Vlng__Syms(contextp(), _vcname__, this)}
+    , clk{vlSymsp->TOP.clk}
+    , reset{vlSymsp->TOP.reset}
+    , b{vlSymsp->TOP.b}
+    , rootp{&(vlSymsp->TOP)}
+{
+    // Register model with the context
+    contextp()->addModel(this);
+}
+
+Vlng::Vlng(const char* _vcname__)
+    : Vlng(Verilated::threadContextp(), _vcname__)
+{
+}
+
+//============================================================
+// Destructor
+
+Vlng::~Vlng() {
+    delete vlSymsp;
+}
+
+//============================================================
+// Evaluation function
+
+#ifdef VL_DEBUG
+void Vlng___024root___eval_debug_assertions(Vlng___024root* vlSelf);
+#endif  // VL_DEBUG
+void Vlng___024root___eval_static(Vlng___024root* vlSelf);
+void Vlng___024root___eval_initial(Vlng___024root* vlSelf);
+void Vlng___024root___eval_settle(Vlng___024root* vlSelf);
+void Vlng___024root___eval(Vlng___024root* vlSelf);
 
 void Vlng::eval_step() {
-    VL_DEBUG_IF(VL_DBG_MSGF("+++++TOP Evaluate Vlng::eval\n"); );
-    Vlng__Syms* __restrict vlSymsp = this->__VlSymsp;  // Setup global symbol table
-    Vlng* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+++++TOP Evaluate Vlng::eval_step\n"); );
 #ifdef VL_DEBUG
     // Debug assertions
-    _eval_debug_assertions();
+    Vlng___024root___eval_debug_assertions(&(vlSymsp->TOP));
 #endif  // VL_DEBUG
-    // Initialize
-    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) _eval_initial_loop(vlSymsp);
-    // Evaluate till stable
-    int __VclockLoop = 0;
-    QData __Vchange = 1;
-    do {
-        VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
-        _eval(vlSymsp);
-        if (VL_UNLIKELY(++__VclockLoop > 100)) {
-            // About to fail, so enable debug to see what's not settling.
-            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
-            int __Vsaved_debug = Verilated::debug();
-            Verilated::debug(1);
-            __Vchange = _change_request(vlSymsp);
-            Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("digital.v", 1, "",
-                "Verilated model didn't converge\n"
-                "- See DIDNOTCONVERGE in the Verilator manual");
-        } else {
-            __Vchange = _change_request(vlSymsp);
-        }
-    } while (VL_UNLIKELY(__Vchange));
-}
-
-void Vlng::_eval_initial_loop(Vlng__Syms* __restrict vlSymsp) {
-    vlSymsp->__Vm_didInit = true;
-    _eval_initial(vlSymsp);
-    // Evaluate till stable
-    int __VclockLoop = 0;
-    QData __Vchange = 1;
-    do {
-        _eval_settle(vlSymsp);
-        _eval(vlSymsp);
-        if (VL_UNLIKELY(++__VclockLoop > 100)) {
-            // About to fail, so enable debug to see what's not settling.
-            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
-            int __Vsaved_debug = Verilated::debug();
-            Verilated::debug(1);
-            __Vchange = _change_request(vlSymsp);
-            Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("digital.v", 1, "",
-                "Verilated model didn't DC converge\n"
-                "- See DIDNOTCONVERGE in the Verilator manual");
-        } else {
-            __Vchange = _change_request(vlSymsp);
-        }
-    } while (VL_UNLIKELY(__Vchange));
-}
-
-VL_INLINE_OPT void Vlng::_sequent__TOP__1(Vlng__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vlng::_sequent__TOP__1\n"); );
-    Vlng* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    vlTOPp->b = ((IData)(vlTOPp->digital__DOT__rst)
-                  ? 0U : (0xffU & ((IData)(1U) + (IData)(vlTOPp->b))));
-    vlTOPp->digital__DOT__rst = vlTOPp->reset;
-}
-
-void Vlng::_eval(Vlng__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vlng::_eval\n"); );
-    Vlng* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    if (((IData)(vlTOPp->clk) & (~ (IData)(vlTOPp->__Vclklast__TOP__clk)))) {
-        vlTOPp->_sequent__TOP__1(vlSymsp);
+    vlSymsp->__Vm_deleter.deleteAll();
+    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
+        vlSymsp->__Vm_didInit = true;
+        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial\n"););
+        Vlng___024root___eval_static(&(vlSymsp->TOP));
+        Vlng___024root___eval_initial(&(vlSymsp->TOP));
+        Vlng___024root___eval_settle(&(vlSymsp->TOP));
     }
-    // Final
-    vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
+    VL_DEBUG_IF(VL_DBG_MSGF("+ Eval\n"););
+    Vlng___024root___eval(&(vlSymsp->TOP));
+    // Evaluate cleanup
+    Verilated::endOfEval(vlSymsp->__Vm_evalMsgQp);
 }
 
-VL_INLINE_OPT QData Vlng::_change_request(Vlng__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vlng::_change_request\n"); );
-    Vlng* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    return (vlTOPp->_change_request_1(vlSymsp));
+//============================================================
+// Events and timing
+bool Vlng::eventsPending() { return false; }
+
+uint64_t Vlng::nextTimeSlot() {
+    VL_FATAL_MT(__FILE__, __LINE__, "", "No delays in the design");
+    return 0;
 }
 
-VL_INLINE_OPT QData Vlng::_change_request_1(Vlng__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vlng::_change_request_1\n"); );
-    Vlng* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    // Change detection
-    QData __req = false;  // Logically a bool
-    return __req;
+//============================================================
+// Utilities
+
+const char* Vlng::name() const {
+    return vlSymsp->name();
 }
 
-#ifdef VL_DEBUG
-void Vlng::_eval_debug_assertions() {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vlng::_eval_debug_assertions\n"); );
-    // Body
-    if (VL_UNLIKELY((clk & 0xfeU))) {
-        Verilated::overWidthError("clk");}
-    if (VL_UNLIKELY((reset & 0xfeU))) {
-        Verilated::overWidthError("reset");}
+//============================================================
+// Invoke final blocks
+
+void Vlng___024root___eval_final(Vlng___024root* vlSelf);
+
+VL_ATTR_COLD void Vlng::final() {
+    Vlng___024root___eval_final(&(vlSymsp->TOP));
 }
-#endif  // VL_DEBUG
+
+//============================================================
+// Implementations of abstract methods from VerilatedModel
+
+const char* Vlng::hierName() const { return vlSymsp->name(); }
+const char* Vlng::modelName() const { return "Vlng"; }
+unsigned Vlng::threads() const { return 1; }
+void Vlng::prepareClone() const { contextp()->prepareClone(); }
+void Vlng::atClone() const {
+    contextp()->threadPoolpOnClone();
+}
