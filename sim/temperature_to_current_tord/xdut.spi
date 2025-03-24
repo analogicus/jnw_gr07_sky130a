@@ -1,2 +1,2 @@
 *Automatic generated instance fron ../../tech/scripts/genxdut temperature_to_current_tord
-XDUT VDD_1V8 I_PTAT VSS  temperature_to_current_tord
+XDUT VDD_1V8 I_PTAT V_REF VSS  temperature_to_current_tord

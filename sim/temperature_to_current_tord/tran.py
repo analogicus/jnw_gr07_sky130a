@@ -25,8 +25,10 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   # with open(yamlfile,"w") as fo:
   #   yaml.dump(obj,fo)
 
-  temps = []
+  temps_i = []
+  temps_v = []
   i_r1 = []
+  v_d1 = []
 
   # Open and read the YAML file
   with open(yamlfile, "r") as file:
@@ -35,35 +37,65 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
     # Iterate through all keys in the YAML data
     for key, value in data.items():
       if key.startswith("i_r1"):
-        temp = int(key.split("_")[-1])
-        temps.append(temp)
+        temp_i = int(key.split("_")[-1])
+        temps_i.append(temp_i)
         i_r1.append(value)
+      elif key.startswith("v_d1"):
+        temp_v = int(key.split("_")[-1])
+        temps_v.append(temp_v)
+        v_d1.append(value)
       else:
         continue
 
-    combined_list = []
-    for i in range(len(data.items())):
-      combined_list.append([temps[i], i_r1[i]])
+  combined_list_i = []
+  for index in range(len(temps_i)):
+    combined_list_i.append([temps_i[index], i_r1[index]])
 
-  combined_list_sorted = sorted(combined_list , key=lambda k: [k[0], k[1]])
-  
-  xs = [x[0] for x in combined_list_sorted]
-  ys = [x[1]*1e6 for x in combined_list_sorted]
+  combined_list_v = []
+  for index in range(len(temps_v)):
+    combined_list_v.append([temps_v[index], v_d1[index]])
 
-  plt.plot(xs, ys, linestyle="--", color="black", marker="o")
+  combined_list_sorted_i = sorted(combined_list_i , key=lambda k: [k[0], k[1]])
+  combined_list_sorted_v = sorted(combined_list_v , key=lambda k: [k[0], k[1]])
+
+  i_r1_x = [x[0] for x in combined_list_sorted_i]
+  i_r1_y = [x[1]*1e6 for x in combined_list_sorted_i]
+
+  v_d1_x = [x[0] for x in combined_list_sorted_v]
+  v_d1_y = [x[1]*1e3 for x in combined_list_sorted_v]
+
+  plt.figure()
+  plt.plot(i_r1_x, i_r1_y, linestyle="--", color="black", marker="o")
   plt.grid()
   plt.xlabel("Temperature [°C]")
   plt.ylabel("PTAT Current [µA]")
   plt.title("Current proportional to absolute temperature (PTAT) vs Temperature", fontsize=14)
-  plt.text(xs[0], ys[-6], 
-           f"Min i_ptat: {ys[0]:.2f} µA\n"
-           f"Max i_ptat: {ys[-1]:.2f} µA\n"
-           f"Range i_ptat: {(ys[-1]-ys[0]):.2f} µA\n"
-           f"Avg step i_ptat: {(ys[-1]-ys[0])/(xs[-1]-xs[0]):.2f} µA/°C",
+  plt.text(i_r1_x[0], i_r1_y[-6], 
+           f"Min i_ptat: {i_r1_y[0]:.2f} µA\n"
+           f"Max i_ptat: {i_r1_y[-1]:.2f} µA\n"
+           f"Range i_ptat: {(i_r1_y[-1] - i_r1_y[0]):.2f} µA\n"
+           f"Avg. step i_ptat: {(i_r1_y[-1] - i_r1_y[0])/(i_r1_x[-1] - i_r1_x[0]):.2f} µA/°C",
            bbox=dict(facecolor="white", edgecolor="black"))
 
   figname = "plots/ptat_vs_temp_" + name.split("_")[-1] + ".png"
   plt.savefig(figname, bbox_inches="tight")
-  plt.show()
-
   print("plot of ptat current vs temperature is saved in /sim/ folder as: " + figname)
+
+  plt.figure()
+  plt.plot(v_d1_x, v_d1_y, linestyle="--", color="black", marker="o")
+  plt.grid()
+  plt.xlabel("Temperature [°C]")
+  plt.ylabel("Vref [mV]")
+  plt.title("Reference Voltage vs Temperature", fontsize=14)
+  plt.text(v_d1_x[0], v_d1_y[-6], 
+           f"Min v_d1: {v_d1_y[0]:.2f} mV\n"
+           f"Max v_d1: {v_d1_y[-1]:.2f} mV\n"
+           f"Range v_d1: {(v_d1_y[-1]-v_d1_y[0]):.2f} mV\n"
+           f"Avg. step v_d1: {(v_d1_y[-1] - v_d1_y[0])/(v_d1_x[-1] - v_d1_x[0]):.2f} mV/°C",
+           bbox=dict(facecolor="white", edgecolor="black"))
+
+  figname = "plots/vref_vs_temp_" + name.split("_")[-1] + ".png"
+  plt.savefig(figname, bbox_inches="tight")
+  print("plot of reference voltage vs temperature is saved in /sim/ folder as: " + figname)
+
+  plt.show()

@@ -17,17 +17,17 @@ N -100 -160 -100 -130 {lab=VDD_1V8}
 N -140 -160 -140 -100 {lab=VDD_1V8}
 N 140 -160 140 -100 {lab=VDD_1V8}
 N -100 140 -10 140 {lab=#net2}
-N 100 -70 100 160 {lab=#net3}
-N 10 140 100 140 {lab=#net3}
-N 10 90 10 140 {lab=#net3}
+N 100 -70 100 160 {lab=V_REF}
+N 10 140 100 140 {lab=V_REF}
+N 10 90 10 140 {lab=V_REF}
 N -10 90 -10 140 {lab=#net2}
 N -140 -100 -140 90 {lab=VDD_1V8}
 N -140 90 -30 90 {lab=VDD_1V8}
 N 30 90 30 340 {lab=VSS}
 N 100 320 100 340 {lab=VSS}
-N 100 240 100 260 {lab=#net4}
+N 100 240 100 260 {lab=#net3}
 N 60 290 60 340 {lab=VSS}
-N 100 220 100 240 {lab=#net4}
+N 100 220 100 240 {lab=#net3}
 N -100 -70 -100 260 {lab=#net2}
 N -140 290 -140 340 {lab=VSS}
 N -100 320 -100 340 {lab=VSS}
@@ -43,6 +43,7 @@ N 200 -100 220 -100 {lab=#net1}
 N 180 -100 200 -100 {lab=#net1}
 N 180 -100 180 -60 {lab=#net1}
 N 40 -60 180 -60 {lab=#net1}
+N 100 80 300 80 {lab=V_REF}
 C {devices/ipin.sym} -160 -160 0 0 {name=p1 lab=VDD_1V8}
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} -60 -100 0 1 {name=x1 }
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 60 -100 0 0 {name=x2 }
@@ -66,3 +67,4 @@ spiceprefix=X
 }
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 220 -100 0 0 {name=x4 }
 C {devices/opin.sym} 300 -20 0 0 {name=p3 lab=I_PTAT}
+C {devices/opin.sym} 300 80 0 0 {name=p4 lab=V_REF}

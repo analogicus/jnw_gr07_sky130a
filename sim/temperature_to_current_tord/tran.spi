@@ -22,7 +22,7 @@
 * original code stops, self written code begins ...
 *
 
-* dirty fix (taken from jnw_gr05)
+* fix taken from jnw_gr05
 .param vdda = 1.8
 
 *
@@ -58,10 +58,10 @@ VDD VDD_1V8 VSS dc 1.8
 *----------------------------------------------------------------
 * PROBE
 *----------------------------------------------------------------
-.save all
 *.probe I(xdut.R1)
-*.option savecurrents
 *.probe alli
+.option savecurrents
+.save all
 .save @r.xdut.r1[i]
 
 *----------------------------------------------------------------
@@ -84,9 +84,9 @@ optran 0 0 0 1n 1u 0
 *
 
 set fend = .raw
-foreach vtemp -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130
+foreach vtemp -40, -35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120
 	option temp=$vtemp
-	tran 1n 5u 10n
+	tran 1n 4.1u 10n
 	write {cicname}_$vtemp$fend
 end
 

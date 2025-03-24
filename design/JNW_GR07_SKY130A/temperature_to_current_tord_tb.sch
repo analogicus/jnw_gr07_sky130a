@@ -4,15 +4,12 @@ K {}
 V {}
 S {}
 E {}
-N -180 80 200 80 {lab=#net1}
-N -180 0 -180 80 {lab=#net1}
-N -180 0 -150 0 {lab=#net1}
-N 150 -20 200 -20 {lab=#net2}
-N 200 -20 200 0 {lab=#net2}
-N 200 60 200 80 {lab=#net1}
+N -170 -20 -150 -20 {lab=VDD_1V8}
+N -170 0 -150 -0 {lab=VSS}
+N 150 -20 170 -20 {lab=I_PTAT}
+N 150 0 170 0 {lab=V_REF}
 C {JNW_GR07_SKY130A/temperature_to_current_tord.sym} 0 -10 0 0 {name=x1}
-C {devices/res.sym} 200 30 0 0 {name=R1
-value=1k
-footprint=1206
-device=resistor
-m=1}
+C {devices/ipin.sym} -170 -20 0 0 {name=p1 lab=VDD_1V8}
+C {devices/ipin.sym} -170 0 0 0 {name=p2 lab=VSS}
+C {devices/opin.sym} 170 -20 0 0 {name=p3 lab=I_PTAT}
+C {devices/opin.sym} 170 0 0 0 {name=p4 lab=V_REF}
