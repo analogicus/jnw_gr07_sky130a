@@ -47,7 +47,7 @@ def main(names="output_tran/tran_SchGtKttTtVt"):
                     continue
 
             combined_list = []
-            for i in range(len(data.items())):
+            for i in range(len(temps)):
                 combined_list.append([temps[i], i_r1[i]])
 
         combined_list_sorted = sorted(combined_list , key=lambda k: [k[0], k[1]])
