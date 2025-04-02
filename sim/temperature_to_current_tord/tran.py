@@ -79,13 +79,10 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
 
   i_r1_x = [x[0] for x in combined_list_sorted_i]
   i_r1_y = [x[1]*1e6 for x in combined_list_sorted_i]
-
   v_d1_x = [x[0] for x in combined_list_sorted_v]
   v_d1_y = [x[1]*1e3 for x in combined_list_sorted_v]
-
   v_ref_x = [x[0] for x in combined_list_sorted_ref]
   v_ref_y = [x[1] for x in combined_list_sorted_ref]
-
   i_ptat_x = [x[0] for x in combined_list_sorted_ptat]
   i_ptat_y = [x[1]*1e6 for x in combined_list_sorted_ptat]
 
@@ -97,7 +94,7 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   plt.xlabel("Temperature [°C]")
   plt.ylabel("PTAT Current (i_ptat) [µA]")
   plt.title("Current proportional to absolute temperature (PTAT) vs Temperature", fontsize=14)
-  plt.text(i_ptat_x[0], i_ptat_y[-7], 
+  plt.text(i_ptat_x[0], i_ptat_y[-5], 
            f"Min i_ptat: {i_ptat_y[0]:.2f} µA\n"
            f"Max i_ptat: {i_ptat_y[-1]:.2f} µA\n"
            f"Range i_ptat: {(i_ptat_y[-1] - i_ptat_y[0]):.2f} µA\n"

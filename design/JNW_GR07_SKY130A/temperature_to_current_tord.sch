@@ -25,9 +25,8 @@ N -140 -100 -140 90 {lab=VDD_1V8}
 N -140 90 -30 90 {lab=VDD_1V8}
 N 30 90 30 340 {lab=VSS}
 N 100 320 100 340 {lab=VSS}
-N 100 240 100 260 {lab=#net3}
+N 100 220 100 260 {lab=#net3}
 N 60 290 60 340 {lab=VSS}
-N 100 220 100 240 {lab=#net3}
 N -100 -70 -100 260 {lab=#net2}
 N -140 290 -140 340 {lab=VSS}
 N -100 320 -100 340 {lab=VSS}
@@ -61,11 +60,6 @@ N 100 20 460 20 {lab=V_D1}
 C {devices/ipin.sym} -160 -160 0 0 {name=p1 lab=VDD_1V8}
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} -60 -100 0 1 {name=x1 }
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 60 -100 0 0 {name=x2 }
-C {devices/res.sym} 100 190 0 0 {name=R1
-value=1k
-footprint=1206
-device=resistor
-m=1}
 C {JNW_BIAS_SKY130A/JNWBIAS_OTA.sym} 0 -60 3 0 {name=x3}
 C {devices/ipin.sym} -160 340 0 0 {name=p2 lab=VSS
 }
@@ -83,14 +77,19 @@ C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 220 -100 0 0 {name=x4 }
 C {devices/opin.sym} 460 -20 0 0 {name=p3 lab=I_PTAT}
 C {devices/opin.sym} 460 60 0 0 {name=p4 lab=V_REF}
 C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} 380 -100 0 0 {name=x5 }
-C {devices/res.sym} 260 190 0 0 {name=R2
-value=9.25k
-footprint=1206
-device=resistor
-m=1}
 C {sky130_fd_pr/pnp_05v5.sym} 240 290 0 0 {name=Q3
 model=pnp_05v5_W3p40L3p40
 m=1
 spiceprefix=X
 }
 C {devices/opin.sym} 460 20 0 0 {name=p5 lab=V_D1}
+C {devices/res.sym} 100 190 0 0 {name=R1
+value=1k
+footprint=1206
+device=resistor
+m=1}
+C {devices/res.sym} 260 190 0 0 {name=R2
+value=10k
+footprint=1206
+device=resistor
+m=1}
