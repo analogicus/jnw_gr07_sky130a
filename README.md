@@ -108,13 +108,17 @@ To test the circuit follow these steps:
 -->
 
 1. enter directory "**sim/temperature_to_current_tord/**"
-2. run "**make typical**". This will simulate the circuit at temperatures 
+2. run "**make typical**" or some other make command as specified in the Makefile. This will simulate the circuit at temperatures 
 from -30 to 130 degrees celcius.
-3. The simulations results in the plot seen below. The plot is saves as **plots/ptat_vs_temp_SchGtKttTtVt.png**.
+3. The make typical simulations results in the plots seen below. The plots are saved as **plots/ptat_vs_temp_SchGtKttTtVt.png**, **plots/vd1_vs_temp_SchGtKttTtVt.png**, and **plots/vref_vs_temp_SchGtKttTtVt.png**.
 
 ![i_ptat](/sim/temperature_to_current_tord/plots/ptat_vs_temp_SchGtKttTtVt.png)
 
-The plots of other yaml files can be seen by running the python file plot_ptat.py with the yaml file(s) location in the folder "output_tran/" as arguments, ex: python plot_ptat.py output_tran/tran_SchGtKttTtVt output_tran/tran_SchGtKffThVl output_tran/tran_SchGtKssThVl output_tran/tran_SchGtKsfThVl output_tran/tran_SchGtKfsThVl. This will save the plot as plots/ptat_vs_temp.png
+![i_ptat](/sim/temperature_to_current_tord/plots/vd1_vs_temp_SchGtKttTtVt.png)
+
+![i_ptat](/sim/temperature_to_current_tord/plots/vref_vs_temp_SchGtKttTtVt.png)
+
+The plots of ptat current from other simulations (for example corners) can be seen by running the python file plot_ptat.py with the yaml file(s) location in the folder "output_tran/" as arguments, ex: python plot_ptat.py output_tran/tran_SchGtKttTtVt output_tran/tran_SchGtKffTtVt output_tran/tran_SchGtKssTtVt output_tran/tran_SchGtKsfTtVt output_tran/tran_SchGtKfsTtVt. This will save the plot as plots/ptat_vs_temp.png
 
 ![i_ptat](/sim/temperature_to_current_tord/plots/ptat_vs_temp.png)
 
