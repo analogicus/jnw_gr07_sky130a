@@ -86,20 +86,34 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   i_ptat_x = [x[0] for x in combined_list_sorted_ptat]
   i_ptat_y = [x[1]*1e6 for x in combined_list_sorted_ptat]
 
+  max_deviation_i_ptat = 0
+  max_deviation_i_ptat_index = 0
+  # Calculate the slope of the linear line between the first and last i_ptat values
+  m = (i_ptat_y[-1] - i_ptat_y[0]) / (i_ptat_x[-1] - i_ptat_x[0])
+  # Find largest deviation of i_ptat from the linear line
+  for index in range(len(i_ptat_y)):
+    lin_i_ptat = (m*(i_ptat_x[index]-i_ptat_x[0]))+i_ptat_y[0]
+    if abs(i_ptat_y[index] - lin_i_ptat) > max_deviation_i_ptat:
+      max_deviation_i_ptat = abs(i_ptat_y[index] - lin_i_ptat)
+      max_deviation_i_ptat_index = index
+    
   plt.figure()
   # plt.plot(i_r1_x, i_r1_y, linestyle="--", color="red", marker="o", label="i_r1")
-  plt.plot(i_ptat_x, i_ptat_y, linestyle="--", color="black", marker="o", label="i_ptat")
-  # plt.legend()
+  plt.plot(i_ptat_x, i_ptat_y, linestyle="--", color="black", marker="o", label="measured i_ptat")
   plt.grid()
   plt.xlabel("Temperature [°C]")
   plt.ylabel("PTAT Current (i_ptat) [µA]")
   plt.title("Current proportional to absolute temperature (PTAT) vs Temperature", fontsize=14)
-  plt.text(i_ptat_x[0], i_ptat_y[-6], 
+  plt.axline((i_ptat_x[0], i_ptat_y[0]), (i_ptat_x[-1], i_ptat_y[-1]), linestyle='solid', color='black', label='ideal i_ptat')
+  plt.plot(i_ptat_x[max_deviation_i_ptat_index], i_ptat_y[max_deviation_i_ptat_index], marker= "o", color="red", linestyle="none", label='max deviation i_ptat')
+  plt.text(i_ptat_x[0], i_ptat_y[-7], 
            f"Min i_ptat: {i_ptat_y[0]:.2f} µA\n"
            f"Max i_ptat: {i_ptat_y[-1]:.2f} µA\n"
            f"Range i_ptat: {(i_ptat_y[-1] - i_ptat_y[0]):.2f} µA\n"
-           f"Avg. step i_ptat: {(i_ptat_y[-1] - i_ptat_y[0])/(i_ptat_x[-1] - i_ptat_x[0]):.2f} µA/°C",
+           f"Max deviation i_ptat: {max_deviation_i_ptat:.2f} µA\n"
+           f"Avg. step i_ptat: {m:.2f} µA/°C",
            bbox=dict(facecolor="white", edgecolor="black"))
+  plt.legend()
   figname = "plots/ptat_vs_temp_" + name.split("_")[-1] + ".png"
   plt.savefig(figname, bbox_inches="tight")
   print("plot of ptat current vs temperature is saved in /sim/ folder as: " + figname)
