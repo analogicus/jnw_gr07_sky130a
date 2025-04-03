@@ -104,21 +104,21 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   plt.savefig(figname, bbox_inches="tight")
   print("plot of ptat current vs temperature is saved in /sim/ folder as: " + figname)
 
-  plt.figure()
-  plt.plot(v_d1_x, v_d1_y, linestyle="--", color="black", marker="o", label="v_d1")
-  plt.grid()
-  plt.xlabel("Temperature [°C]")
-  plt.ylabel("Voltage over diode 1 (v_d1) [mV]")
-  plt.title("Diode Voltage vs Temperature", fontsize=14)
-  plt.text(v_d1_x[0], v_d1_y[-1], 
-           f"Max v_d1: {v_d1_y[0]:.2f} mV\n"
-           f"Min v_d1: {v_d1_y[-1]:.2f} mV\n"
-           f"Range v_d1: {(v_d1_y[-1]-v_d1_y[0]):.2f} mV\n"
-           f"Avg. step v_d1: {(v_d1_y[-1] - v_d1_y[0])/(v_d1_x[-1] - v_d1_x[0]):.2f} mV/°C",
-           bbox=dict(facecolor="white", edgecolor="black"))
-  figname = "plots/vd1_vs_temp_" + name.split("_")[-1] + ".png"
-  plt.savefig(figname, bbox_inches="tight")
-  print("plot of diode voltage vs temperature is saved in /sim/ folder as: " + figname)
+  # plt.figure()
+  # plt.plot(v_d1_x, v_d1_y, linestyle="--", color="black", marker="o", label="v_d1")
+  # plt.grid()
+  # plt.xlabel("Temperature [°C]")
+  # plt.ylabel("Voltage over diode 1 (v_d1) [mV]")
+  # plt.title("Diode Voltage vs Temperature", fontsize=14)
+  # plt.text(v_d1_x[0], v_d1_y[-1], 
+  #          f"Max v_d1: {v_d1_y[0]:.2f} mV\n"
+  #          f"Min v_d1: {v_d1_y[-1]:.2f} mV\n"
+  #          f"Range v_d1: {(v_d1_y[-1]-v_d1_y[0]):.2f} mV\n"
+  #          f"Avg. step v_d1: {(v_d1_y[-1] - v_d1_y[0])/(v_d1_x[-1] - v_d1_x[0]):.2f} mV/°C",
+  #          bbox=dict(facecolor="white", edgecolor="black"))
+  # figname = "plots/vd1_vs_temp_" + name.split("_")[-1] + ".png"
+  # plt.savefig(figname, bbox_inches="tight")
+  # print("plot of diode voltage vs temperature is saved in /sim/ folder as: " + figname)
 
   plt.figure()
   plt.plot(v_ref_x, v_ref_y, linestyle="--", color="black", marker="o", label="v_ref")

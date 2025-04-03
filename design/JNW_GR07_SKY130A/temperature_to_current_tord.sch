@@ -4,7 +4,7 @@ K {}
 V {}
 S {}
 E {}
-T {I_R1=(V_D1-V_D2)/R1=(V_T*ln(N))/R1} 110 100 0 0 0.4 0.4 {}
+T {I_R1=(V_D1-V_D2)/R1=(V_T*ln(N))/R1} 310 130 0 0 0.4 0.4 {}
 N -160 340 100 340 {lab=VSS}
 N -60 -100 60 -100 {lab=#net1}
 N -160 -160 100 -160 {lab=VDD_1V8}
@@ -17,15 +17,15 @@ N -100 -160 -100 -130 {lab=VDD_1V8}
 N -140 -160 -140 -100 {lab=VDD_1V8}
 N 140 -160 140 -100 {lab=VDD_1V8}
 N -100 140 -10 140 {lab=#net2}
-N 100 -70 100 160 {lab=V_D1}
-N 10 140 100 140 {lab=V_D1}
-N 10 90 10 140 {lab=V_D1}
+N 100 -70 100 160 {lab=#net3}
+N 10 140 100 140 {lab=#net3}
+N 10 90 10 140 {lab=#net3}
 N -10 90 -10 140 {lab=#net2}
 N -140 -100 -140 90 {lab=VDD_1V8}
 N -140 90 -30 90 {lab=VDD_1V8}
 N 30 90 30 340 {lab=VSS}
 N 100 320 100 340 {lab=VSS}
-N 100 240 100 260 {lab=#net3}
+N 100 240 100 260 {lab=#net4}
 N 60 290 60 340 {lab=VSS}
 N -100 -70 -100 260 {lab=#net2}
 N -140 290 -140 340 {lab=VSS}
@@ -53,15 +53,14 @@ N 420 -160 460 -160 {lab=VDD_1V8}
 N 100 340 260 340 {lab=VSS}
 N 260 320 260 340 {lab=VSS}
 N 220 290 220 340 {lab=VSS}
-N 260 240 260 260 {lab=#net4}
+N 260 240 260 260 {lab=#net5}
 N 260 60 460 60 {lab=V_REF}
-N 100 20 460 20 {lab=V_D1}
 N 60 200 60 290 {lab=VSS}
 N 60 200 80 200 {lab=VSS}
 N 220 200 220 290 {lab=VSS}
 N 220 200 240 200 {lab=VSS}
 N 260 -70 260 60 {lab=V_REF}
-N 260 140 260 160 {lab=#net5}
+N 260 140 260 160 {lab=#net6}
 N 220 100 220 200 {lab=VSS}
 N 220 100 240 100 {lab=VSS}
 C {devices/ipin.sym} -160 -160 0 0 {name=p1 lab=VDD_1V8}
@@ -89,7 +88,6 @@ model=pnp_05v5_W3p40L3p40
 m=1
 spiceprefix=X
 }
-C {devices/opin.sym} 460 20 0 0 {name=p5 lab=V_D1}
 C {JNW_TR_SKY130A/JNWTR_RPPO2.sym} 100 160 1 0 {name=x6 }
 C {JNW_TR_SKY130A/JNWTR_RPPO16.sym} 260 160 1 0 {name=x7 }
 C {JNW_TR_SKY130A/JNWTR_RPPO4.sym} 260 60 1 0 {name=x8 }

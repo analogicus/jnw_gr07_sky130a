@@ -16,10 +16,13 @@ echo "MEAS_START"
 set fend = .raw
 foreach vtemp -50 -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150
 	load {cicname}_$vtemp$fend
+	echo
+	echo
+	echo
 	*meas tran i_r1_$vtemp find i(@r.xdut.r1[i]) at=9.8u
 	meas tran i_r1_$vtemp find i(v_ptat) at=9.9u
 	meas tran i_ptat_$vtemp find i(v_ptat) at=9.9u
-	meas tran v_d1_$vtemp find v(v_d1) at=9.9u
+	*meas tran v_d1_$vtemp find v(v_d1) at=9.9u
 	meas tran v_ref_$vtemp find v(v_ref) at=9.9u
 end
 
