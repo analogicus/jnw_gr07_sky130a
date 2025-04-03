@@ -67,7 +67,7 @@ V_PTAT I_PTAT VSS dc 0.5
 *.probe alli
 *.option savecurrents
 *.save all
-.save @r.xdut.r1[i]
+*.save @r.xdut.r1[i]
 .save i(v_ptat)
 .save v(v_d1)
 .save v(v_ref)

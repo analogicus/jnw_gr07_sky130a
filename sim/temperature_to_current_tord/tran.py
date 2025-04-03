@@ -3,7 +3,7 @@
 import yaml
 # import cicsim as cs
 import matplotlib.pyplot as plt
-# import numpy as np
+import numpy as np
 
 def main(name="output_tran/tran_SchGtKttTtVt"):
   # Delete next line if you want to use python post processing
@@ -87,14 +87,14 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   i_ptat_y = [x[1]*1e6 for x in combined_list_sorted_ptat]
 
   plt.figure()
-  plt.plot(i_r1_x, i_r1_y, linestyle="--", color="red", marker="o", label="i_r1")
+  # plt.plot(i_r1_x, i_r1_y, linestyle="--", color="red", marker="o", label="i_r1")
   plt.plot(i_ptat_x, i_ptat_y, linestyle="--", color="black", marker="o", label="i_ptat")
-  plt.legend()
+  # plt.legend()
   plt.grid()
   plt.xlabel("Temperature [°C]")
   plt.ylabel("PTAT Current (i_ptat) [µA]")
   plt.title("Current proportional to absolute temperature (PTAT) vs Temperature", fontsize=14)
-  plt.text(i_ptat_x[0], i_ptat_y[-5], 
+  plt.text(i_ptat_x[0], i_ptat_y[-6], 
            f"Min i_ptat: {i_ptat_y[0]:.2f} µA\n"
            f"Max i_ptat: {i_ptat_y[-1]:.2f} µA\n"
            f"Range i_ptat: {(i_ptat_y[-1] - i_ptat_y[0]):.2f} µA\n"
@@ -126,14 +126,14 @@ def main(name="output_tran/tran_SchGtKttTtVt"):
   plt.xlabel("Temperature [°C]")
   plt.ylabel("Reference voltage (v_ref) [V]")
   plt.title("Reference Voltage vs Temperature", fontsize=14)
-  plt.text(v_ref_x[0], v_ref_y[-1], 
+  plt.text(v_ref_x[7], v_ref_y[0], 
            f"Max v_ref: {max(v_ref_y):.4f} V\n"
            f"Min v_ref: {min(v_ref_y):.4f} V\n"
            f"Range v_ref: {(max(v_ref_y)-min(v_ref_y)):.4f} V\n"
            f"Avg. step v_ref: {(max(v_ref_y)-min(v_ref_y))/(max(v_ref_x)-min(v_ref_x)):.5f} V/°C",
            bbox=dict(facecolor="white", edgecolor="black"))
   plt.axhline(y=sum(v_ref_y)/len(v_ref_y), linestyle=':', color='black', label='Average Vref') 
-  plt.text(v_ref_x[0], sum(v_ref_y)/len(v_ref_y)-0.0015, 
+  plt.text(v_ref_x[7], sum(v_ref_y)/len(v_ref_y), 
            f"Avg. val. v_ref: {sum(v_ref_y)/len(v_ref_y):.4f} V/°C",
            bbox=dict(facecolor="white", edgecolor="black"))
   figname = "plots/vref_vs_temp_" + name.split("_")[-1] + ".png"
