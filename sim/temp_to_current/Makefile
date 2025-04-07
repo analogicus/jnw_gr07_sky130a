@@ -7,8 +7,8 @@ all: typical etc mc summary
 TB=tran
 VIEW=Sch
 #VIEW=Lay
-CELL=temp_to_pwm_RA
-LIB =JNW_GR07_SKY130A
+CELL=temp_to_current
+LIB =JNW_EX_SKY130A
 OPT=
 
 include ../../tech/make/sim.make

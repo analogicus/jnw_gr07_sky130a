@@ -4,6 +4,42 @@ K {}
 V {}
 S {}
 E {}
+B 2 230 -570 1030 -170 {flags=graph
+
+
+ypos1=0
+ypos2=2
+divy=5
+
+unity=1
+
+
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+rawfile=$netlist_dir/temp_to_current_tb.raw
+sim_type=tran
+autoload=1
+subdivy=1
+mode=Line
+rainbow=0
+y2=2.4
+
+
+
+
+
+
+x2=2.184e-05
+x1=3.44e-06
+y1=-0.1}
 N -140 -20 -100 -20 {lab=#net1}
 N -140 20 -100 20 {lab=0}
 N -140 20 -140 60 {lab=0}
@@ -24,7 +60,7 @@ N 190 -0 200 -0 {lab=I_T_tb}
 C {JNW_GR07_SKY130A/temp_to_current.sym} 50 0 0 0 {name=x1}
 C {devices/lab_wire.sym} -170 60 0 0 {name=p1 sig_type=std_logic lab=0}
 C {devices/vsource.sym} -190 0 0 0 {name=V3 value=1.8 savecurrent=false}
-C {devices/simulator_commands_shown.sym} -570 -560 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} -570 -570 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -56,3 +92,7 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/vsource.sym} 230 -60 1 0 {name=V1 value=0 savecurrent=false}
+C {devices/launcher.sym} 270 -610 0 0 {name=h5
+descr="load waves (press ctrl + left click)" 
+tclcommand="xschem raw_read $netlist_dir/amplifier_tb.raw tran"
+}

@@ -5,7 +5,7 @@ V {}
 S {}
 E {}
 B 2 -180 -630 620 -230 {flags=graph
-y1=+
+y1=0
 
 ypos1=0
 ypos2=2
@@ -13,7 +13,7 @@ divy=5
 
 unity=1
 x1=-0.0001279994
-x2=0.001135134
+x2=0.000435134
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -30,13 +30,14 @@ autoload=1
 subdivy=1
 mode=Line
 rainbow=0
-y2=2
+
 
 
 color="5 4"
 node="vout_tb
 
-vinp_tb"}
+vinp_tb"
+y2=1.5}
 N 20 -160 20 -60 {lab=Vdd_tb}
 N -170 10 -80 10 {lab=Vinm_tb}
 N -250 -30 -180 -30 {lab=Vinp_tb}
@@ -62,21 +63,21 @@ value="
 * Options:
 .option savecurrents
 .option gmin=1e-15
-.option temp=40
+.option temp=120
 .save V(Vout_tb) V(Vinp_tb) V(Vinm_tb) V(Vdd_tb)
 .save all
 .control
-*optran 0 0 0 10m 10n 0
-tran 10n 1m
+*optran 0 0 0 10m 4n 0
+tran 10n 0.4m
 *op
 write amplifier_tb.raw
 *exit
 .endc
 .end
 "}
-C {devices/vsource.sym} -280 -30 1 0 {name=V1 value="sin(0.7 10m 10k)" savecurrent=false}
-C {devices/vsource.sym} -200 10 1 0 {name=V2 value=0.7 savecurrent=false}
-C {devices/vsource.sym} 120 -130 0 0 {name=V3 value=1.8 savecurrent=true}
+C {devices/vsource.sym} -280 -30 1 0 {name=V1 value="sin(0.5 50m 10k)" savecurrent=false}
+C {devices/vsource.sym} -200 10 1 0 {name=V2 value=0.5 savecurrent=false}
+C {devices/vsource.sym} 120 -130 0 0 {name=V3 value=1.9 savecurrent=true}
 C {devices/lab_wire.sym} -320 -30 0 0 {name=p1 sig_type=std_logic lab=0}
 C {devices/lab_wire.sym} -240 10 0 0 {name=p2 sig_type=std_logic lab=0}
 C {devices/lab_wire.sym} 120 -90 0 0 {name=p3 sig_type=std_logic lab=0}

@@ -13,8 +13,10 @@
 PREFIX=
 LIB=JNW_GR07_SKY130A
 CELL=JNW_GR07
+#CELL=amplifier
 
 #- Provide cells you want to check for the lvsall drcall commands
 CELLS = JNW_GR07
+#CELLS = amplifier
 
 include ../tech/make/core.make
