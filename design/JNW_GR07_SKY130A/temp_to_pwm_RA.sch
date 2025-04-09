@@ -10,7 +10,7 @@ N -20 40 60 40 {lab=V_C}
 N 60 40 140 40 {lab=V_C}
 N 80 -40 80 -20 {lab=VSS}
 N 80 -140 80 -100 {lab=V_REF}
-N 80 -220 80 -200 {lab=VDD}
+N 0 -440 0 -420 {lab=VDD}
 N 80 -120 140 -120 {lab=V_REF}
 N 140 320 140 340 {lab=VSS}
 N 140 -120 140 -0 {lab=V_REF}
@@ -51,23 +51,26 @@ N 140 160 260 160 {lab=#net1}
 N 140 150 140 160 {lab=#net1}
 N 140 160 140 180 {lab=#net1}
 N 140 240 140 260 {lab=#net2}
+N 0 -340 -0 -320 {lab=#net3}
+N -0 -240 -0 -220 {lab=#net4}
+N -0 -140 0 -110 {lab=V_REF}
+N -0 -30 80 -30 {lab=VSS}
+N -0 -120 80 -120 {lab=V_REF}
+N -40 -30 0 -30 {lab=VSS}
+N -40 -380 -40 -30 {lab=VSS}
+N -40 -380 -20 -380 {lab=VSS}
+N -40 -280 -20 -280 {lab=VSS}
+N -40 -180 -20 -180 {lab=VSS}
+N -40 -70 -20 -70 {lab=VSS}
+N -60 310 140 320 {lab=VSS}
+N -60 240 140 260 {lab=#net2}
 C {JNW_GR07_SKY130A/temp_to_current.sym} -80 40 0 0 {name=x1}
 C {devices/lab_wire.sym} -270 60 0 0 {name=p1 sig_type=std_logic lab=VSS}
 C {devices/lab_wire.sym} 40 40 0 0 {name=p6 sig_type=std_logic lab=V_C
 }
 C {devices/lab_wire.sym} -270 20 0 0 {name=p4 sig_type=std_logic lab=VDD
 }
-C {devices/res.sym} 80 -170 0 0 {name=R1
-value=3k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 80 -70 0 0 {name=R2
-value=1k
-footprint=1206
-device=resistor
-m=1}
-C {devices/lab_wire.sym} 80 -220 0 0 {name=p3 sig_type=std_logic lab=VDD
+C {devices/lab_wire.sym} 0 -440 0 0 {name=p3 sig_type=std_logic lab=VDD
 }
 C {devices/lab_wire.sym} 140 -120 0 0 {name=p5 sig_type=std_logic lab=V_REF}
 C {devices/lab_wire.sym} 300 -60 0 0 {name=p9 sig_type=std_logic lab=VDD
@@ -85,11 +88,6 @@ C {devices/lab_wire.sym} -220 -130 0 0 {name=p13 sig_type=std_logic lab=VDD
 C {devices/ipin.sym} -280 -90 0 0 {name=p14 lab=VSS
 }
 C {devices/lab_wire.sym} -220 -90 0 0 {name=p15 sig_type=std_logic lab=VSS}
-C {devices/capa.sym} 140 290 0 0 {name=C1
-m=1
-value=500f
-footprint=1206
-device="ceramic capacitor"}
 C {JNW_TR_SKY130A/JNWTR_BFX1_CV.sym} 440 20 0 0 {name=x3 }
 C {devices/lab_wire.sym} 480 -40 0 0 {name=p16 sig_type=std_logic lab=VDD
 }
@@ -109,7 +107,13 @@ C {JNW_TR_SKY130A/JNWTR_DFRNQNX1_CV.sym} 600 80 0 0 {name=x5 }
 C {devices/lab_wire.sym} 600 110 0 0 {name=p24 sig_type=std_logic lab=VDD
 }
 C {JNW_ATR_SKY130A/JNWATR_NCH_2C1F2.sym} 330 290 0 1 {name=x2[1:0]}
-C {JNW_GR07_SKY130A/comparator_RA.sym} 290 20 0 0 {name=x4}
 C {devices/vsource.sym} 140 80 0 0 {name=V1 value=0 savecurrent=false}
 C {devices/lab_wire.sym} 140 340 0 0 {name=p7 sig_type=std_logic lab=VSS}
 C {devices/vsource.sym} 140 210 0 0 {name=V2 value=0 savecurrent=false}
+C {JNW_GR07_SKY130A/amplifier.sym} 300 20 0 0 {name=x2
+}
+C {JNW_TR_SKY130A/JNWTR_RPPO4.sym} 0 -110 1 0 {name=x8 }
+C {JNW_TR_SKY130A/JNWTR_RPPO4.sym} 0 -220 1 0 {name=x9 }
+C {JNW_TR_SKY130A/JNWTR_RPPO4.sym} 0 -320 1 0 {name=x10 }
+C {JNW_TR_SKY130A/JNWTR_RPPO4.sym} 0 -420 1 0 {name=x6 }
+C {JNW_TR_SKY130A/JNWTR_CAPX4.sym} -60 300 0 0 {name=x7 }

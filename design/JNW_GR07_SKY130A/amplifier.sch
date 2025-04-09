@@ -86,10 +86,5 @@ C {JNW_ATR_SKY130A/JNWATR_PCH_4C5F0.sym} -340 -150 0 1 {name=x6[11:0]}
 C {devices/lab_wire.sym} -30 -70 0 0 {name=p6 sig_type=std_logic lab=OTA_VDD}
 C {devices/lab_wire.sym} -160 -150 0 0 {name=p7 sig_type=std_logic lab=IB_gate}
 C {devices/lab_wire.sym} -100 30 0 0 {name=p8 sig_type=std_logic lab=OTA_CM_gate}
-C {devices/res_ac.sym} -490 80 0 0 {name=R2
-value=10Meg
-ac=10Meg
-m=1
-spice_ignore=true}
 C {JNW_TR_SKY130A/JNWTR_RPPO16.sym} -320 70 1 0 {name=x4 }
 C {JNW_TR_SKY130A/JNWTR_RPPO16.sym} -320 -20 1 0 {name=x1 }
