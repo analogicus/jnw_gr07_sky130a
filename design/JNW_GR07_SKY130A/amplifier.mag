@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1744272892
+timestamp 1744276743
 << locali >>
 rect -2780 9380 16720 9420
 rect -3420 9180 16720 9380
@@ -434,7 +434,7 @@ use JNWATR_NCH_4C5F0  JNWATR_NCH_4C5F0_3
 timestamp 1734044400
 transform 0 -1 16428 1 0 6784
 box -184 -128 1336 928
-use JNWATR_PCH_4C5F0  JNWATR_PCH_4C5F0_0 ../JNW_ATR_SKY130A
+use JNWATR_PCH_4C5F0  JNWATR_PCH_4C5F0_0 ~/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A
 timestamp 1734044400
 transform -1 0 9636 0 -1 4528
 box -184 -128 1336 928
@@ -499,11 +499,11 @@ timestamp 1734044400
 transform -1 0 6036 0 -1 7328
 box -184 -128 1336 928
 use JNWTR_RPPO16  x1 ../JNW_TR_SKY130A
-timestamp 1744016169
+timestamp 1744276743
 transform 0 1 942 -1 0 8254
 box 0 0 4472 3440
 use JNWTR_RPPO16  x4
-timestamp 1744016169
+timestamp 1744276743
 transform 0 1 -2728 1 0 3752
 box 0 0 4472 3440
 use JNWATR_PCH_4C5F0  x5

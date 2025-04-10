@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1744224075
+timestamp 1744276743
 << locali >>
 rect 10044 21096 10336 21176
 rect 9988 21090 11332 21096
@@ -158,8 +158,8 @@ rect 7257 19354 8532 19355
 rect 7257 19116 7258 19354
 rect 7498 19116 8532 19354
 rect 7257 19115 8532 19116
-use amplifier  amplifier_0 ../JNW_GR07_SKY130A
-timestamp 1744217280
+use amplifier  amplifier_0
+timestamp 1744276743
 transform 0 -1 15920 1 0 1620
 box -3420 2880 17196 9420
 use JNWATR_PCH_4C5F0  JNWATR_PCH_4C5F0_0 ~/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_ATR_SKY130A
@@ -174,16 +174,16 @@ use JNWATR_PCH_4C5F0  JNWATR_PCH_4C5F0_2
 timestamp 1734044400
 transform -1 0 9036 0 -1 20828
 box -184 -128 1336 928
-use JNWTR_RPPO16  JNWTR_RPPO16_0 ~/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_TR_SKY130A
-timestamp 1744016169
+use JNWTR_RPPO16__0  JNWTR_RPPO16_0 ~/pro/aicex/ip/jnw_gr07_sky130a/design/JNW_TR_SKY130A
+timestamp 1744276743
 transform 0 -1 16940 1 0 2200
 box 0 0 4472 3440
-use JNWTR_RPPO16  JNWTR_RPPO16_1
-timestamp 1744016169
+use JNWTR_RPPO16__0  JNWTR_RPPO16_1
+timestamp 1744276743
 transform 0 -1 16940 1 0 11400
 box 0 0 4472 3440
-use JNWTR_RPPO16  JNWTR_RPPO16_2
-timestamp 1744016169
+use JNWTR_RPPO16__0  JNWTR_RPPO16_2
+timestamp 1744276743
 transform 0 -1 16940 1 0 6800
 box 0 0 4472 3440
 use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_0 $PDKPATH/libs.ref/sky130_fd_pr/mag
@@ -222,8 +222,8 @@ use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_8
 timestamp 1736794646
 transform 1 0 4800 0 1 14100
 box 0 0 1340 1340
-use JNWTR_CAPX1  x2 ../JNW_TR_SKY130A
-timestamp 1723932000
+use JNWTR_CAPX1  x2 JNW_TR_SKY130A
+timestamp 1737500400
 transform 1 0 7880 0 1 18504
 box 0 0 1080 1080
 << labels >>
