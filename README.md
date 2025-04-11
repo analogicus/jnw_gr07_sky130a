@@ -13,13 +13,11 @@ Reidar Arne Eidsvik Nerheim, Pol Batalle Largo and Tord Olsen Sætermo.
 
 # Why
 
-<explain why you made this module>
 This project is a part of the course "TFE4188 - Advanced Integrated Circuits" at NTNU during the spring of 2025.
 
 
 # How
 
-<explain short how you made this module>
 We used tools such as xschem, ngspice, and magic.
 
 
