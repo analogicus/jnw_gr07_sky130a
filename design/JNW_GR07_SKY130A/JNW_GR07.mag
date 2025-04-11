@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1744366080
+timestamp 1744366208
 << locali >>
 rect 22750 23070 22810 23170
 rect 12780 22800 13020 22820
@@ -343,7 +343,7 @@ timestamp 1744276743
 transform 0 -1 30240 -1 0 16880
 box 0 0 1880 3440
 use temp_to_current  temp_to_current_1
-timestamp 1744276743
+timestamp 1744366208
 transform 1 0 0 0 1 0
 box 4800 -1800 19120 21396
 << labels >>
