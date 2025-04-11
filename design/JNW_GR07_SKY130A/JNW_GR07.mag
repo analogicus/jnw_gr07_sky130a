@@ -308,11 +308,11 @@ use JNWATR_NCH_2C1F2  JNWATR_NCH_2C1F2_2
 timestamp 1734044400
 transform 0 1 18728 -1 0 20508
 box -184 -128 1208 928
-use temp_to_current  temp_to_current_1 ../JNW_GR07_SKY130A
+use temp_to_current  temp_to_current_1
 timestamp 1744276743
 transform 1 0 0 0 1 0
 box 4800 -1800 19120 21396
-use amplifier  amplifier_1 ../JNW_GR07_SKY130A
+use amplifier  amplifier_1
 timestamp 1744276743
 transform 0 1 17120 1 0 1620
 box -3420 2880 17196 9420
