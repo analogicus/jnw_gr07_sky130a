@@ -12,7 +12,7 @@ email: anon@anon.com
 url: analogicus.github.io
 doc:
   # Make docs
-  #libraries:
+  libraries:
   #   <library>:
   #       - <cell>
   #       - <cell>
