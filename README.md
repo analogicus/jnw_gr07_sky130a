@@ -26,12 +26,16 @@ We used tools such as xschem, ngspice, and magic.
 | What      | Cell/Name |
 | :-        | :-:       |
 | Schematic | design/JNW_GR07_SKY130A/amplifier.sch |
-| Schematic | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch |
+| Layout    | design/JNW_GR07_SKY130A/amplifier.mag |
 | Schematic | design/JNW_GR07_SKY130A/temp_to_current.sch |
-| Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch |
-| Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch |
-| Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch |
+| Layout    | design/JNW_GR07_SKY130A/temp_to_current.mag |
+| Schematic | design/JNW_GR07_SKY130A/JNW_GR07.sch |
+| Layout    | design/JNW_GR07_SKY130A/JNW_GR07.mag |
 
+<!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch | -->
+<!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch | -->
+<!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch | -->
+<!-- | Schematic | design/JNW_GR07_SKY130A/temperature_to_current_tord.sch | -->
 <!-- | Schematic | design/JNW_GR07_SKY130A/temp_to_current_tb.sch | -->
 
 
@@ -44,7 +48,7 @@ We used tools such as xschem, ngspice, and magic.
 |0.1.2 | :white_check_mark: | Milestone 2: Digital output |
 |0.1.3 | :x: | Simulate circuit at different corners |
 |0.1.4 | :x: | Simulate circuit at different supply voltages |
-|0.1.5 | :x: | Milestone 3: Layout |
+|0.1.5 | :white_check_mark: | Milestone 3: Layout |
 
 
 # Signal interface
@@ -117,7 +121,7 @@ The plots of ptat current from other simulations (for example corners) can be se
 
 ![i_ptat](/sim/temperature_to_current_tord/plots/ptat_vs_temp.png)
 
-# Current to PWM
+# Current to PWM (JNW_GR07)
 **Aka Milestone 2**
 
 The current to PWM circuit can be found in "**design/JNW_GR07_SKY130A/temp_to_pwm_RA.sch**", and is shown
@@ -168,6 +172,16 @@ value, it would not cause problems in a digital circuit...)
 **Note**:
 1. There also exists a simple testbench, "**design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch**", that can be used for initial simulations of the circuit.
 2. The temperature to current block used for the PWM circuit can be found in "**desin/JNW_GR07_SKY130A/temp_to_current.sch**", and is **not** sized identical to the one tested in chapter **Temp to current, PTAT**.
+
+# Layout of PWM circuit (JNW_GR07)
+**Aka Milestone 3**
+The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**". Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
+
+## Future Work
+Although the layout succesfully completes the tests, it needs refinement:
+1. Some components, like transistors and resistors, are rotated. This leads to an increase in mismatch.
+2. The VDD and VSS rails are placed badly, and should be reconfigured into a upper and lower rail.
+3. In general, the circuit has a lot of empty space, and could be made smaller.
 
 # OTA
 
