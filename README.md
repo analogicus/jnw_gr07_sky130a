@@ -173,7 +173,7 @@ value, it would not cause problems in a digital circuit...)
 1. There also exists a simple testbench, "**design/JNW_GR07_SKY130A/temp_to_pwm_RA_TB.sch**", that can be used for initial simulations of the circuit.
 2. The temperature to current block used for the PWM circuit can be found in "**desin/JNW_GR07_SKY130A/temp_to_current.sch**", and is **not** sized identical to the one tested in chapter **Temp to current, PTAT**.
 
-# Layout of PWM circuit (JNW_GR07)
+# Layout of PWM circuit (JNW_GR07.mag)
 **Aka Milestone 3**
 
 The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**". Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
@@ -183,6 +183,7 @@ Although the layout succesfully completes the tests, it needs refinement:
 1. Some components, like transistors and resistors, are rotated. This leads to an increase in mismatch.
 2. The VDD and VSS rails are placed badly, and should be reconfigured into a upper and lower rail.
 3. In general, the circuit has a lot of empty space, and could be made smaller.
+4. Insert dummy components in order to reduce mismatch.
 
 # OTA
 
