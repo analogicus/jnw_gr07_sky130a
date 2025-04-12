@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1744465194
+timestamp 1744466016
 << locali >>
 rect -1500 8290 5200 8300
 rect -1500 8110 1310 8290
@@ -134,16 +134,14 @@ rect 6310 3292 6502 3304
 rect 6072 1304 6264 2696
 rect 6456 1304 6648 2696
 rect 4656 696 4848 1296
-rect 6456 696 6648 1296
 rect 4104 504 6096 696
-rect 6456 504 7696 696
 rect 4144 -32 4208 504
 rect -920 -240 -380 -220
 rect -920 -480 -636 -240
 rect -396 -480 -380 -240
 rect 4656 -296 4848 504
 rect 5944 -32 6008 504
-rect 6456 -96 6648 504
+rect 6456 -96 6648 1296
 rect -920 -500 -380 -480
 rect 4144 -1032 4208 -568
 rect 4272 -1296 4464 -304
@@ -169,15 +167,15 @@ rect 4144 3232 4208 3576
 rect 4138 3168 4144 3232
 rect 4208 3168 4214 3232
 rect 5938 3168 5944 3232
-rect 6008 3168 7432 3232
+rect 6008 3168 7200 3232
 << via2 >>
 rect 4144 3576 4208 3632
 << metal3 >>
 rect 4139 3636 4213 3637
-rect 4139 3632 7432 3636
+rect 4139 3632 7198 3636
 rect 4139 3576 4144 3632
-rect 4208 3576 7432 3632
-rect 4139 3572 7432 3576
+rect 4208 3576 7198 3632
+rect 4139 3572 7198 3576
 rect 4139 3571 4213 3572
 use JNWATR_NCH_4C5F0  JNWATR_NCH_4C5F0_0 ../JNW_ATR_SKY130A
 timestamp 1744368984
@@ -274,14 +272,14 @@ box -184 -128 1336 928
 << labels >>
 flabel metal1 1304 8104 1496 8296 0 FreeSans 1600 0 0 0 VDD
 port 1 nsew
-flabel metal1 7504 504 7696 696 0 FreeSans 1600 0 0 0 VOUT
-port 7 nsew
-flabel metal3 7368 3572 7432 3636 0 FreeSans 1600 0 0 0 VINP
-port 9 nsew
-flabel metal2 7368 3168 7432 3232 0 FreeSans 1600 0 0 0 VINN
-port 10 nsew
 flabel locali 3400 -3400 3900 -2900 0 FreeSans 1600 0 0 0 VSS
 port 12 nsew
+flabel metal1 6456 500 6648 692 0 FreeSans 1600 0 0 0 VOUT
+port 14 nsew
+flabel metal2 7136 3168 7200 3232 0 FreeSans 1600 0 0 0 VINN
+port 16 nsew
+flabel metal3 7134 3572 7198 3636 0 FreeSans 1600 0 0 0 VINP
+port 19 nsew
 << properties >>
 string FIXED_BBOX 0 0 14704 3440
 << end >>
