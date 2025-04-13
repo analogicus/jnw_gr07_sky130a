@@ -176,14 +176,16 @@ value, it would not cause problems in a digital circuit...)
 # Layout of PWM circuit (JNW_GR07.mag)
 **Aka Milestone 3**
 
-The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**". Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
+The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**", and is depicted below. Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
+
+![layout](/Images/Layout.png)
+![layout3d](/Images/Layout3d.png)
 
 ## Future Work
 Although the layout succesfully completes the tests, it needs refinement:
-1. Some components, like transistors and resistors, are rotated. This leads to an increase in mismatch.
-2. The VDD and VSS rails are placed badly, and should be reconfigured into a upper and lower rail.
-3. In general, the circuit has a lot of empty space, and could be made smaller.
-4. Insert dummy components in order to reduce mismatch.
+1. Insert dummy components in order to reduce mismatch.
+2. Current should run in the same direction for components that should match.
+3. The circuit could probably be made smaller.
 
 # OTA
 
