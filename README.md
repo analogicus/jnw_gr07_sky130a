@@ -176,7 +176,7 @@ value, it would not cause problems in a digital circuit...)
 # Layout of PWM circuit (JNW_GR07.mag)
 **Aka Milestone 3**
 
-The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**", and is depicted below. Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
+The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**", and is depicted below (both with / without explanation, and a 3d render). Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
 
 ![layout](/Images/LayoutDescription.png)
 ![layout](/Images/Layout.png)
