@@ -183,7 +183,7 @@ Ther are two revisions of the layout, this being revision 2. The components are:
 
 **Layout with explanation:**
 
-![layout](/Images/LayoutDescription2.png)
+![layout](/Images/LayoutDescription3.png)
 
 **Layout without explanation:**
 
