@@ -72,7 +72,7 @@ We used tools such as xschem, ngspice, and magic.
 
 # System description
 This is a temperature measurement circuit. It is built up of two blocks:
-1. Temp to Current, a circuit that outputs a current proportional to temperature (PTAT)
+1. Temp to Current, a circuit that outputs a current proportional to absolute temperature (PTAT)
 2. Current to PWM, a circuit that outputs a digital PWM signal proportional to temperature
 
 
@@ -99,7 +99,7 @@ The current through $R_1$ is then $I_{R_1} = \frac{V_{R_1}}{R_1} = \frac{V_t}{R_
 Since $V_T = \frac{kT}{q}$, we get a current proportional to temperature: $I_{R_1}(T) = \frac{kT}{qR_1} ln(N)$. This current is copied using a current mirror,
  creating $I(T)$ and used as an output.
 
-**Note**: The diodes are realized by the NPN transistors Q1 and Q2.
+**Note**: Diode 1 and diode 2 are realized by the NPN transistors Q1 and Q2 respectivly.
 
 ## Testing of the PTAT circuit
 To test the circuit follow these steps:
@@ -136,7 +136,7 @@ This gives $V^- = V_{ref}= V_{DD} \frac{R_3}{R_3+R_2}$. The voltage across the c
 2. $\frac{\partial T}{\partial t} = 0$, the temperature is not dependent on time.
 
 The oputput of the comparator is set to high at time $t_0$, when $V^- = V^+(t_0)$. Using the previous equations this can be written as $V_{ref} = \frac{t_0I(T)}{C}$.
-$t_0$ is thus given by $t_0 = \frac{V_{ref}C}{I(t)}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
+The time $t_0$ is thus given by $t_0 = \frac{V_{ref}C}{I(t)}$. The output of the comparator is buffered, then fed into a clocked register. The output of the register
 is the PWM signal, and is simultaneously used to reset the circuit. The reset is done by discharging the capacitor using an nmos, N1, connected to ground.
 
 It can be shown using previous formulas (found in section "**Temp to Current, PTAT**"), that $\frac{\partial I(T)}{\partial T} > 0$,
@@ -153,7 +153,7 @@ In order to extract $t_0$, the PWM circuit is used to control a 8-bit digital co
 reseting when PWM goes high. The value of the counter when reset is set high is then linearly dependent on temperature. The test circuit is
 depicted in the figure below.
 
-![test_setup](/Images/TestCircuit.png)
+![test_setup](/Images/pwm-test.png)
 
 To run simulations follow
 these steps:
