@@ -182,10 +182,15 @@ The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR0
 Ther are two revisions of the layout, this being revision 2. The components are: "amplifier_rev2.mag" and "temp_to_current_rev2.mag".
 
 Layout with explanation:
+
 ![layout](/Images/LayoutDescription.png)
+
 Layout without explanation:
+
 ![layout](/Images/Layout.png)
+
 3d render of layout:
+
 ![layout3d](/Images/Layout3d.png)
 
 
