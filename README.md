@@ -178,6 +178,9 @@ value, it would not cause problems in a digital circuit...)
 
 The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR07.mag**", and is depicted below (both with / without explanation, and a 3d render). Layout vs schematic (LVS) can be tested by running "**make cdl lvs**" in the **work** folder. The layout succesfully completes the LVS test, and does not experience any design rule errors (succesfully completes the drc, design rule check).
 
+**Note**
+Ther are two revisions of the layout, this being revision 2. The components are: "amplifier_rev2.mag" and "temp_to_current_rev2.mag".
+
 ![layout](/Images/LayoutDescription.png)
 ![layout](/Images/Layout.png)
 ![layout3d](/Images/Layout3d.png)
@@ -186,9 +189,10 @@ The layout of the PWM circuit can be found in "**design/JNW_GR07_SKY130A/JNW_GR0
 
 ## Future Work
 Although the layout succesfully completes the tests, it needs refinement:
-1. Insert dummy components in order to reduce mismatch.
-2. Current should run in the same direction for components that should match.
-3. The circuit could probably be made smaller.
+1. Do layout simulations.
+2. Insert dummy components in order to reduce mismatch.
+3. Current should run in the same direction for components that should match.
+4. The circuit could probably be made smaller.
 
 # OTA
 
