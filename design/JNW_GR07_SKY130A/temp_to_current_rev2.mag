@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1744474925
+timestamp 1744535825
 << locali >>
 rect 5702 7704 9832 8100
 rect 8488 7328 8680 7704
@@ -191,8 +191,8 @@ rect 8910 -2590 8970 -2340
 rect 8452 -2650 8970 -2590
 rect 8452 -2652 8453 -2650
 rect 8387 -2653 8453 -2652
-use amplifier_rev2  amplifier_rev2_0 ../JNW_GR07_SKY130A
-timestamp 1744468687
+use amplifier_rev2  amplifier_rev2_0
+timestamp 1744535493
 transform 1 0 1000 0 1 -200
 box -1600 -3400 7200 8300
 use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_0 $PDKPATH/libs.ref/sky130_fd_pr/mag
@@ -249,7 +249,7 @@ transform 1 0 8584 0 1 5328
 box -184 -128 1336 928
 use JNWTR_CAPX1  x2 ../JNW_TR_SKY130A
 timestamp 1744368984
-transform 1 0 8900 0 1 -2400
+transform 1 0 8400 0 1 -2400
 box 0 0 1080 1080
 use JNWTR_RPPO16  x6
 timestamp 1744468687

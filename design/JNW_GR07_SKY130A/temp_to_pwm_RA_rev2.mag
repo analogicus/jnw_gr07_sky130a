@@ -1,0 +1,56 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1744535493
+<< error_s >>
+rect 12056 3904 12248 3924
+rect 17752 3904 17940 3924
+rect 12056 3876 12248 3896
+rect 17752 3876 17940 3896
+use JNWATR_NCH_2C1F2  JNWATR_NCH_2C1F2_0 ../JNW_ATR_SKY130A
+timestamp 1744368984
+transform 1 0 22184 0 1 -7872
+box -184 -128 1208 928
+use JNWATR_NCH_2C1F2  x2[1:0]
+timestamp 1744368984
+transform 1 0 25184 0 1 -8272
+box -184 -128 1208 928
+use JNWTR_BFX1_CV  x3 ../JNW_TR_SKY130A
+timestamp 1744368984
+transform 1 0 26550 0 1 -2680
+box -150 -120 2130 600
+use amplifier_rev2  x4 ../JNW_GR07_SKY130A
+timestamp 1744535493
+transform -1 0 24400 0 1 2600
+box -1600 -3400 7200 8300
+use JNWTR_DFRNQNX1_CV  x5 ../JNW_TR_SKY130A
+timestamp 1744368984
+transform 1 0 27150 0 1 -7080
+box -150 -120 2130 3960
+use JNWTR_RPPO4  x6 ../JNW_TR_SKY130A
+timestamp 1744368984
+transform 1 0 13200 0 1 2800
+box 0 0 1880 3440
+use JNWTR_CAPX4  x7 ../JNW_TR_SKY130A
+timestamp 1744368984
+transform 1 0 21720 0 1 -6000
+box 480 0 3120 2640
+use JNWTR_RPPO4  x8
+timestamp 1744368984
+transform 1 0 14800 0 1 -8000
+box 0 0 1880 3440
+use JNWTR_RPPO4  x9
+timestamp 1744368984
+transform 1 0 14800 0 1 -800
+box 0 0 1880 3440
+use JNWTR_RPPO4  x10
+timestamp 1744368984
+transform 1 0 14800 0 1 -4400
+box 0 0 1880 3440
+use temp_to_current_rev2  x11 ../JNW_GR07_SKY130A
+timestamp 1744535493
+transform 1 0 4600 0 1 2800
+box -600 -10800 9980 8101
+<< properties >>
+string FIXED_BBOX 0 0 62504 3840
+<< end >>
