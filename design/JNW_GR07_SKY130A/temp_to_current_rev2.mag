@@ -191,71 +191,71 @@ rect 8910 -2590 8970 -2340
 rect 8452 -2650 8970 -2590
 rect 8452 -2652 8453 -2650
 rect 8387 -2653 8453 -2652
-use amplifier_rev2  amplifier_rev2_0
+use amplifier_rev2 amplifier_rev2_0 ../JNW_GR07_SKY130A
 timestamp 1754836895
 transform 1 0 1000 0 1 -200
 box -1600 -3400 7200 8300
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_0 $PDKPATH/libs.ref/sky130_fd_pr/mag
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_0 $PDKPATH/libs.ref/sky130_fd_pr/mag
 timestamp 1734020192
 transform 1 0 8200 0 1 -5600
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_1
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_1 
 timestamp 1734020192
 transform 1 0 5000 0 1 -7200
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_2
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_2 
 timestamp 1734020192
 transform 1 0 5000 0 1 -5600
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_3
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_3 
 timestamp 1734020192
 transform 1 0 6600 0 1 -7200
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_4
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_4 
 timestamp 1734020192
 transform 1 0 8200 0 1 -7200
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_5
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_5 
 timestamp 1734020192
 transform 1 0 5000 0 1 -4000
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_6
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_6 
 timestamp 1734020192
 transform 1 0 6600 0 1 -4000
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_7
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_7 
 timestamp 1734020192
 transform 1 0 6600 0 1 -5600
 box 0 0 1340 1340
-use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40  sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_8
+use sky130_fd_pr__rf_pnp_05v5_W3p40L3p40 sky130_fd_pr__rf_pnp_05v5_W3p40L3p40_8 
 timestamp 1734020192
 transform 1 0 8200 0 1 -4000
 box 0 0 1340 1340
-use JNWTR_CAPX1  x2 JNW_GR06_SKY130A/../JNW_TR_SKY130A
+use JNWTR_CAPX1 x2 ../JNW_TR_SKY130A
 timestamp 1737500400
 transform 1 0 8620 0 1 -2400
 box 0 0 1080 1080
-use JNWATR_PCH_4C5F0  x3 ../JNW_ATR_SKY130A
+use JNWATR_PCH_4C5F0 x3 ../JNW_ATR_SKY130A
 timestamp 1740610800
 transform 1 0 8584 0 1 3928
 box -184 -128 1336 928
-use JNWTR_RPPO16  x4 JNW_TR_SKY130A
+use JNWTR_RPPO16 x4 ../JNW_TR_SKY130A
 timestamp 1754770625
 transform 1 0 0 0 1 -7200
 box 0 0 4472 3440
-use JNWATR_PCH_4C5F0  x5
+use JNWATR_PCH_4C5F0 x5 ../JNW_ATR_SKY130A
 timestamp 1740610800
 transform 1 0 8584 0 1 6728
 box -184 -128 1336 928
-use JNWATR_PCH_4C5F0  x
+use JNWATR_PCH_4C5F0 x ../JNW_ATR_SKY130A
 timestamp 1740610800
 transform 1 0 8584 0 1 5328
 box -184 -128 1336 928
-use JNWTR_RPPO16  x6
+use JNWTR_RPPO16 x6 ../JNW_TR_SKY130A
 timestamp 1754770625
 transform -1 0 4472 0 1 -10800
 box 0 0 4472 3440
-use JNWTR_RPPO16  x7
+use JNWTR_RPPO16 x7 ../JNW_TR_SKY130A
 timestamp 1754770625
 transform -1 0 9272 0 1 -10800
 box 0 0 4472 3440
