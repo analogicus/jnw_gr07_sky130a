@@ -23,6 +23,8 @@ We used tools such as xschem, ngspice, and magic.
 
 # What
 
+Some measurements at https://analogicus.com/jnw-tt-2025/presentation.html and https://github.com/wulffern/jnw-tt-2025/tree/main/meas
+
 | What      | Cell/Name |
 | :-        | :-:       |
 | Schematic | design/JNW_GR07_SKY130A/amplifier.sch |
